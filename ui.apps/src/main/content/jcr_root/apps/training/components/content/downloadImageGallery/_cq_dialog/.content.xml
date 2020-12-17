@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	jcr:primaryType="nt:unstructured" jcr:title="Image and CTA Gallery"
+	sling:resourceType="cq/gui/components/authoring/dialog"
+	height="{Long}500">
+	<content jcr:primaryType="nt:unstructured"
+		sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/coral/foundation/tabs"
+				maximized="{Boolean}true">
+				<items jcr:primaryType="nt:unstructured">
+					<downloadImageGallery
+						jcr:primaryType="nt:unstructured"
+						jcr:title="Download Image Gallery "
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<column jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<title jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="Title of Download Gallery"
+										fieldLabel="Title of Download Gallery" name="./title" />
+									<description cq:xfVariantType="web"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+										fieldDescription="Description" fieldLabel="description"
+										height="20" name="./description"
+										useFixedInlineToolbar="{Boolean}true">
+										<htmlRules jcr:primaryType="nt:unstructured"
+											sling:resourceSuperType="training/components/content/playRtePlugins/htmlRules" />
+										<rtePlugins jcr:primaryType="nt:unstructured"
+											sling:resourceSuperType="training/components/content/playRtePlugins/rtePlugins" />
+										<uiSettings jcr:primaryType="nt:unstructured"
+											sling:resourceSuperType="training/components/content/playRtePlugins/uiSettings" />
+									</description>
+									<showmoretitle cq:xfVariantType="web"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="Show More Text" fieldLabel="Show More Text"
+										name="./showMoreText" required="{Boolean}true"
+										useFixedInlineToolbar="{Boolean}true" />
+									<showlesstitle cq:xfVariantType="web"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="Show Less Text" fieldLabel="Show Less Text"
+										name="./showLessText" required="{Boolean}true"
+										useFixedInlineToolbar="{Boolean}true" />
+									<enableDownload
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+										fieldDescription="Selecting this will allow author's to add a single clickable CTA below each image. Author is able to customize the text, destination URL, and link options of the CTA button."
+										name="./enabledownload" text="Enable CTA"
+										uncheckedValue="false" value="true" />
+									<enableViewAll jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+										fieldDescription="Selecting this will allow for a View All CTA to appear after the end user clicks the Show More button. Author is able to customize the text, destination URL, and link options of the View All label."
+										name="./enableviewall" text="Enable View All Label"
+										uncheckedValue="false" value="true" />
+									<enableopacity jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+										fieldDescription="Selecting this activates a brightening effect when end users hover over an image."
+										name="./enablehovering" text="Enable Image Hovering?"
+										uncheckedValue="false" value="true" />
+									<columnLayout
+										granite:class="cq-dialog-dropdown-showhide"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldDescription="Display Gallery in Default/ 3 Column/ 4 Column Layout"
+										fieldLabel="Display Gallery in" name="./columnLayout">
+										<items jcr:primaryType="nt:unstructured">
+											<default jcr:primaryType="nt:unstructured"
+												selected="{Boolean}true" text="Default" value="default" />
+											<twoColumn jcr:primaryType="nt:unstructured"
+												selected="{Boolean}true" text="Two Column Layout"
+												value="column-2" />
+											<threeColumn jcr:primaryType="nt:unstructured"
+												selected="{Boolean}true" text="Three Column Layout"
+												value="column-3" />
+											<fourColumn jcr:primaryType="nt:unstructured"
+												text="Four Column Layout" value="column-4" />
+										</items>
+									</columnLayout>
+									<viewAllLabel jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="View All Label" fieldLabel="View All Label"
+										name="./viewAll" />
+									<viewAllLink jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										fieldDescription="View All Link" fieldLabel="View All Link"
+										name="./viewAllLink" rootPath="/content" />
+									<viewAllOpenCtaLinks
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldDescription="View All Open CTA Link"
+										fieldLabel="View All Open CTA Link"
+										name="./viewAllOpenCtaLinksIn">
+										<items jcr:primaryType="nt:unstructured">
+											<sameWindow jcr:primaryType="nt:unstructured"
+												text="Same Window" value="samewindow" />
+											<newTab jcr:primaryType="nt:unstructured"
+												text="New Tab" value="newtab" />
+											<newWindow jcr:primaryType="nt:unstructured"
+												text="New Window" value="newwindow" />
+											<interstitial jcr:primaryType="nt:unstructured"
+												text="Interstitial" value="interstitial" />
+										</items>
+									</viewAllOpenCtaLinks>
+									<backgroundoption
+										granite:class="cq-dialog-dropdown-showhide"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldLabel="Download Section Background Option"
+										name="./downloadBackOption">
+										<items jcr:primaryType="nt:unstructured">
+											<image jcr:primaryType="nt:unstructured" text="Image"
+												value="image" />
+											<color jcr:primaryType="nt:unstructured" text="Color"
+												value="color" />
+										</items>
+									</backgroundoption>
+									<backgroundColour
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+										fieldLabel="Download Section Background Color"
+										name="./downloadBgColor" />
+									<backgroundImage
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+										allowUpload="{Boolean}false" autoStart="{Boolean}false"
+										class="cq-droptarget"
+										fieldLabel="Download Section Background Image"
+										fileReferenceParameter="./downloadBgImage"
+										mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+										multiple="{Boolean}false" name="./downloadBgImage1"
+										rootPath="/content/dam" uploadUrl="${suffix.path}"
+										useHTML5="{Boolean}true" />
+									<styleConfig
+										granite:class="cq-dialog-dropdown-showhide"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldDescription="Apply Styles for"
+										fieldLabel="Apply Styles for" name="./styleFor">
+										<items jcr:primaryType="nt:unstructured">
+											<default jcr:primaryType="nt:unstructured"
+												selected="{Boolean}true" text="Others" value="others" />
+											<globalCauses jcr:primaryType="nt:unstructured"
+												text="Global Causes" value="global-causes" />
+											<globalTeam jcr:primaryType="nt:unstructured"
+												text="Global Team" value="global-team" />
+										</items>
+									</styleConfig>
+								</items>
+							</column>
+						</items>
+					</downloadImageGallery>
+					<tileConfiguration
+						jcr:primaryType="nt:unstructured" jcr:title="Tiles Configuration"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<downloadImageGallery
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+								composite="{Boolean}true" fieldDescription="Tile Configuration"
+								fieldLabel="Tile Configuration">
+								<field jcr:primaryType="nt:unstructured"
+									sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+									name="./downloadImage">
+									<items jcr:primaryType="nt:unstructured">
+										<column jcr:primaryType="nt:unstructured"
+											sling:resourceType="granite/ui/components/coral/foundation/container">
+											<items jcr:primaryType="nt:unstructured">
+												<thumbnailTitle
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldDescription="Title of tile" fieldLabel="tile Title"
+													name="./thumbnailTitle" required="{Boolean}true" />
+												<thumbnailDescription
+													cq:xfVariantType="web" jcr:primaryType="nt:unstructured"
+													sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+													fieldDescription="Tile Description"
+													fieldLabel="Tile Description" height="20"
+													name="./thumbnailDescription"
+													useFixedInlineToolbar="{Boolean}true">
+													<htmlRules jcr:primaryType="nt:unstructured"
+														sling:resourceSuperType="training/components/content/playRtePlugins/htmlRules" />
+													<rtePlugins jcr:primaryType="nt:unstructured"
+														sling:resourceSuperType="training/components/content/playRtePlugins/rtePlugins" />
+													<uiSettings jcr:primaryType="nt:unstructured"
+														sling:resourceSuperType="training/components/content/playRtePlugins/uiSettings" />
+												</thumbnailDescription>
+												<thumbnailImage
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+													allowUpload="{Boolean}false" autoStart="{Boolean}false"
+													class="cq-droptarget" fieldLabel="Tile Image"
+													fileReferenceParameter="./thumbImage"
+													mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff,video/mp4,video/webm,video/ogg]"
+													multiple="{Boolean}false" name="./thumbnailImage"
+													required="{Boolean}true" rootPath="/content/dam"
+													uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+												<altTextThumbnail
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldDescription="Alt text of tile image"
+													fieldLabel="Alternative Text Tile Image"
+													name="./altTexTthumbnail" required="true" />
+												<downloadctaLabel
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldDescription="CTA Label for Carousel"
+													fieldLabel="Download CTA Label" name="./downloadCtaLabel" />
+												<disableFileDownload
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/foundation/form/checkbox"
+													fieldDescription="Must be checked to disable file download when you click on CTA"
+													name="./disabledDownloadFile" text="Disable File Download"
+													uncheckedValue="{Boolean}false" value="{Boolean}true" />
+												<downloadctaLink
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+													fieldDescription="CTA Link for Carousel"
+													fieldLabel="Download CTA Link" name="./downloadCtaLink"
+													rootPath="/content" />
+												<openCtaLinksIn
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/select"
+													fieldLabel="Open CTA Links In" name="./openCtaLinksIn">
+													<items jcr:primaryType="nt:unstructured">
+														<sameWindow jcr:primaryType="nt:unstructured"
+															text="Same Window" value="samewindow" />
+														<newTab jcr:primaryType="nt:unstructured"
+															text="New Tab" value="newtab" />
+														<newWindow
+															granite:hide="${cqDesign.disableSearch}"
+															jcr:primaryType="nt:unstructured" text="New Window"
+															value="newwindow" />
+														<interstitial
+															jcr:primaryType="nt:unstructured" text="App Interstitial"
+															value="interstitial" />
+														<linkToSamePage
+															jcr:primaryType="nt:unstructured"
+															text="Link To Same Page" value="linkToSamePage" />
+													</items>
+												</openCtaLinksIn>
+												<interstitialDetailList
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+													class="full-width" composite="{Boolean}true" eaem=""
+													fieldLabel="Interstitial App Details">
+													<field jcr:primaryType="nt:unstructured"
+														sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+														name="./interstitialDetailList">
+														<items jcr:primaryType="nt:unstructured">
+															<column jcr:primaryType="nt:unstructured"
+																sling:resourceType="granite/ui/components/coral/foundation/container">
+																<items jcr:primaryType="nt:unstructured">
+																	<interstitialLink
+																		jcr:primaryType="nt:unstructured"
+																		sling:resourceType="/libs/granite/ui/components/coral/foundation/form/pathfield"
+																		fieldDescription="Interstitial Website URL"
+																		fieldLabel="Interstitial Link"
+																		name="./interstitialUrl" required="{Boolean}true"
+																		rootPath="/content" />
+																	<interstitialLogo
+																		jcr:primaryType="nt:unstructured"
+																		sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+																		allowUpload="{Boolean}false"
+																		autoStart="{Boolean}false" class="cq-droptarget"
+																		fieldDescription="Browse Logo/Image"
+																		fieldLabel="Interstitial Logo"
+																		fileReferenceParameter="./interstitialLogoSrc"
+																		mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+																		multiple="{Boolean}false" name="./interstitialLogo"
+																		required="{Boolean}true" rootPath="/content/dam"
+																		uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+																	<interstitialAltText
+																		jcr:primaryType="nt:unstructured"
+																		sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+																		fieldDescription="Textual alternative of the meaning or function of the image, for visually impaired readers."
+																		fieldLabel="Alternative Text"
+																		name="./interstitialLogoAlt" required="true"
+																		wrapperClass="cmp-image--editor-alt" />
+																	<targetUrl jcr:primaryType="nt:unstructured"
+																		sling:resourceType="granite/ui/components/coral/foundation/form/select"
+																		fieldLabel="Open URL In" name="./interstitialTarget">
+																		<items jcr:primaryType="nt:unstructured">
+																			<sameWindow
+																				jcr:primaryType="nt:unstructured" text="Same Window"
+																				value="sameWindow" />
+																			<newTab jcr:primaryType="nt:unstructured"
+																				text="New Tab" value="tabWindow" />
+																			<newWindow
+																				granite:hide="${cqDesign.disableSearch}"
+																				jcr:primaryType="nt:unstructured"
+																				selected="{Boolean}true" text="New Window"
+																				value="newWindow" />
+																		</items>
+																	</targetUrl>
+																</items>
+															</column>
+														</items>
+													</field>
+													<granite:data
+														jcr:primaryType="nt:unstructured" maxRetailersAllowed="8" />
+												</interstitialDetailList>
+												<awalysEnglish
+													jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+													fieldDescription="Awalys English dealing with multi-lingual site tagging"
+													fieldLabel="Adobe Tracking Name" name="./alwaysEnglish"
+													required="{Boolean}true" />
+											</items>
+										</column>
+									</items>
+								</field>
+								<granite:data jcr:primaryType="nt:unstructured"
+									maxRetailersAllowed="12" />
+							</downloadImageGallery>
+						</items>
+					</tileConfiguration>
+					<linkToNavigation
+						jcr:primaryType="nt:unstructured" jcr:title="Link To Navigation"
+						sling:resourceType="granite/ui/components/foundation/container"
+						margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<linkToNavigation
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								fieldDescription="Is this section to be linked to Navigation"
+								name="./linkNavigationCheck" text="Link To Navigation?"
+								uncheckedValue="{Boolean}false" value="{Boolean}true" />
+							<NavigationOptions
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Navigation Mapping" name="./linkNavOption">
+								<datasource jcr:primaryType="nt:unstructured"
+									sling:resourceType="/bin/homepagedropdown" />
+							</NavigationOptions>
+						</items>
+					</linkToNavigation>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

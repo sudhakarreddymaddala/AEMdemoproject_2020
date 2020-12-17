@@ -1,0 +1,237 @@
+<sly data-sly-test="${wcmmode.edit}">${'Products Gallery
+Component' @ i18n}</sly>
+<sly data-sly-use.allChars="com.training.core.models.GalleryModel">
+<sly
+	data-sly-test="${(properties.fileReferenceBgImg == null && properties.backgroundColor == null )||(properties.backOption=='image'&& properties.fileReferenceBgImg ==null)||(properties.backOption=='color'&& properties.backgroundColor ==null)}">
+<div class="training-tiles-gallery training-products training-products-hp"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> <sly
+	data-sly-test="${properties.backOption=='color' && properties.backgroundColor !=null}">
+<div class="training-tiles-gallery training-products training-products-hp"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background: ${properties.backgroundColor@ context='styleString'}">
+</sly> <sly
+	data-sly-test="${properties.backOption=='image'&& properties.fileReferenceBgImg !=null}">
+<div class="training-tiles-gallery training-products training-products-hp"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+</sly> <sly
+	data-sly-test="${(properties.galleryTitleFileReferenceBgImg == null && properties.galleryTitleBackgroundColor == null )||(properties.galleryTitleBackOption=='image'&& properties.galleryTitleFileReferenceBgImg ==null)||(properties.galleryTitleBackOption=='color'&& properties.galleryTitleBackgroundColor ==null)}">
+<div class="gallery-title">
+</sly> <sly
+	data-sly-test="${properties.galleryTitleBackOption=='color' && properties.galleryTitleBackgroundColor !=null}">
+<div class="gallery-title"
+	style="background: ${properties.galleryTitleBackgroundColor@ context='styleString'}">
+</sly> <sly
+	data-sly-test="${properties.galleryTitleBackOption=='image'&& properties.galleryTitleFileReferenceBgImg !=null}">
+<div class="gallery-title"
+	style="background-image: url('${properties.galleryTitleFileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+</sly>
+<h2 data-sly-test="${properties.galleryTitle}">${properties.galleryTitle
+	@i18n}</h2>
+<p data-sly-test="${properties.galleryDescription}">${properties.galleryDescription
+	@context='html',i18n}</p>
+</div>
+<div class="gallery-tile">
+	<sly data-sly-test="${properties.galleryFrom == 'manual'}">
+	<ul class="product-list">
+		<sly data-sly-list.tile="${allChars.manualProductList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.productTileTarget == 'nolink'}"
+			href="javascript:void(0);"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a data-sly-test="${properties.productTileTarget == 'internallink'}"
+			href="${tile.productPagePath}"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'retailerinterstitial'}"
+			class="retailers-list" href="javascript:void(0);"
+			data-path="${tile.productPagePath}" data-toggle="modal"
+			data-target="#interstitialRetailerModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'interstitialleaving'}"
+			href="javascript:void(0);" data-toggle="modal"
+			data-target="#interstitialModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a></li>
+		</sly>
+	</ul>
+	</sly>
+	<sly data-sly-test="${properties.galleryFrom == 'landing'}">
+	<ul class="product-list">
+		<sly data-sly-list.tile="${allChars.landingProductList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.productTileTarget == 'nolink'}"
+			href="javascript:void(0);"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a data-sly-test="${properties.productTileTarget == 'internallink'}"
+			href="${tile.productPagePath}"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'retailerinterstitial'}"
+			class="retailers-list" href="javascript:void(0);"
+			data-path="${tile.productPagePath}" data-toggle="modal"
+			data-target="#interstitialRetailerModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'interstitialleaving'}"
+			href="javascript:void(0);" data-toggle="modal"
+			data-target="#interstitialModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a></li>
+		</sly>
+	</ul>
+	</sly>
+	<sly data-sly-test="${properties.galleryFrom == 'category'}">
+	<ul class="product-list">
+		<sly data-sly-list.tile="${allChars.categoryProductsList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.productTileTarget == 'nolink'}"
+			href="javascript:void(0);"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a data-sly-test="${properties.productTileTarget == 'internallink'}"
+			href="${tile.productPagePath}"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.catName @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'retailerinterstitial'}"
+			class="retailers-list" href="javascript:void(0);"
+			data-path="${tile.productPagePath}" data-toggle="modal"
+			data-target="#interstitialRetailerModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'interstitialleaving'}"
+			href="javascript:void(0);" data-toggle="modal"
+			data-target="#interstitialModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a></li>
+		</sly>
+	</ul>
+	</sly>
+	<sly data-sly-test="${properties.galleryFrom == 'by date'}">
+	<ul class="product-list">
+
+		<sly data-sly-list.tile="${allChars.byDateProductsList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.productTileTarget == 'nolink'}"
+			href="javascript:void(0);"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a data-sly-test="${properties.productTileTarget == 'internallink'}"
+			href="${tile.productPagePath}"
+			data-tracking-id="Image Gallery Section|${tile.alwaysEnglish}|${tile.alwaysEnglish @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'retailerinterstitial'}"
+			class="retailers-list" href="javascript:void(0);"
+			data-path="${tile.productPagePath}" data-toggle="modal"
+			data-target="#interstitialRetailerModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a> <a
+			data-sly-test="${properties.productTileTarget == 'interstitialleaving'}"
+			href="javascript:void(0);" data-toggle="modal"
+			data-target="#interstitialModal">
+				<div class="gallery-image" data-height-sync=".gallery-image">
+					<img src="${tile.productThumbnail}" alt="${tile.thumbnailAltTxt}" />
+				</div>
+				<span class="tile-content">${tile.productTitle @ i18n}</span><span
+				class="sr-only"> ${'Opens a pop up' @ i18n}</span>
+		</a></li>
+		</sly>
+	</ul>
+	</sly>
+	<div data-sly-test="${properties.ctaButtonText}" class="view-all">
+		<sly data-sly-test="${properties.ctaButtonTarget =='sameWindow'}">
+		<a class="btn btn-view-all"
+			aria-label="View all products ${properties.galleryTitle}"
+			data-tracking-id="Image Gallery Section|${properties.galleryAnalticsText}|${properties.ctaButtonText}|${properties.galleryFor}"
+			href=${allChars.ctaButtonLink} role="button">${properties.ctaButtonText
+			@ i18n}</a> </sly>
+		<sly data-sly-test="${properties.ctaButtonTarget =='tabWindow'}">
+		<a class="btn btn-view-all"
+			aria-label="View all products ${properties.galleryTitle}"
+			target="_blank"
+			data-tracking-id="Image Gallery Section|${properties.galleryAnalticsText}|${properties.ctaButtonText}|${properties.galleryFor}"
+			href=${allChars.ctaButtonLink} role="button">${properties.ctaButtonText
+			@ i18n}<span class="sr-only"> ${'Opens in a new tab' @ i18n}</span>
+		</a> </sly>
+		<sly data-sly-test="${properties.ctaButtonTarget =='newWindow'}">
+		<a class="btn btn-view-all"
+			aria-label="View all products ${properties.galleryTitle}"
+			data-tracking-id="Image Gallery Section|${properties.galleryAnalticsText}|${properties.ctaButtonText}|${properties.galleryFor}"
+			data-url=${allChars.ctaButtonLink} role="button"
+			onclick="window.open(this.dataset.url,'PLAY','width=500, height=500');">${properties.ctaButtonText
+			@ i18n}<span class="sr-only"> ${'Opens in new window' @ i18n}</span>
+		</a> </sly>
+	</div>
+</div>
+<div class="show-more">
+	<a href="javascript:void(0);" class="accordion"
+		data-component-id="Image Gallery Section|${properties.galleryAnalticsText}"
+		data-text-collapse="${properties.showMoreText}"
+		data-text-expand="${properties.showLessText}" aria-expanded="false">
+		${properties.showMoreText @ i18n} </a>
+</div>
+</div>
+</sly>

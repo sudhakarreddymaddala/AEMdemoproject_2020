@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	jcr:primaryType="nt:unstructured" jcr:title="Footer"
+	sling:resourceType="cq/gui/components/authoring/dialog"
+	height="{Long}500">
+	<content jcr:primaryType="nt:unstructured"
+		sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/coral/foundation/tabs"
+				maximized="{Boolean}true">
+				<items jcr:primaryType="nt:unstructured">
+					<backgroundStyle jcr:primaryType="nt:unstructured"
+						jcr:title="Background Style"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<column jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<backgroundColor
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+										fieldLabel="Background Color:" name="./backgroundColor" />
+									<backgroundImage
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+										allowUpload="{Boolean}false" autoStart="{Boolean}false"
+										class="cq-droptarget" fieldLabel="Upload Background Image:"
+										fileReferenceParameter="./fileReferenceBgImg"
+										mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+										multiple="{Boolean}false" name="./backgroundImage"
+										uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+									<backgroundoption
+										granite:class="cq-dialog-dropdown-showhide"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldLabel="Background Option" name="./backOption">
+										<items jcr:primaryType="nt:unstructured">
+											<image jcr:primaryType="nt:unstructured" text="Image"
+												value="image" />
+											<color jcr:primaryType="nt:unstructured" text="Color"
+												value="color" />
+										</items>
+									</backgroundoption>
+								</items>
+							</column>
+						</items>
+					</backgroundStyle>
+					<mattelLogo jcr:primaryType="nt:unstructured"
+						jcr:title="Logo Details"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<column jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<logoImg jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+										allowUpload="{Boolean}false" autoStart="{Boolean}false"
+										class="cq-droptarget" fieldLabel="Upload Logo Image:"
+										fileReferenceParameter="./fileReference"
+										mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+										multiple="{Boolean}false" name="./logoImg"
+										uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+									<logoURL jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										fieldLabel="Logo URL:" name="./logoURL" />
+									<logoAltText jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldLabel="ImageAlternative Text" name="./logoAltText"
+										required="{Boolean}true" />
+									<alwaysEnglishForMattelLogo
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="Analytics Tracking Name for Mattel Logo Image Alternative Text in English"
+										fieldLabel="Adobe Tracking Name"
+										name="./alwaysEnglishForMattelLogo" />
+									<logoTargetUrl jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldLabel="Open URL In" name="./logoTargetUrl">
+										<items jcr:primaryType="nt:unstructured">
+											<sameWindow jcr:primaryType="nt:unstructured"
+												text="Same Window" value="sameWindow" />
+											<newTab jcr:primaryType="nt:unstructured"
+												text="New Tab" value="newTab" />
+											<newWindow granite:hide="${cqDesign.disableSearch}"
+												jcr:primaryType="nt:unstructured" text="New Window"
+												value="newWindow" />
+										</items>
+									</logoTargetUrl>
+									<alwaysEnglish jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="Always English check for Multi-Lingual  Site Tagging"
+										fieldLabel="Adobe Tracking Name" name="./alwaysEnglish"
+										required="true" />
+								</items>
+							</column>
+						</items>
+					</mattelLogo>
+					<footerLinks jcr:primaryType="nt:unstructured"
+						jcr:title="Footer Links"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<column jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<footerLinks jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+										composite="{Boolean}true" fieldLabel="Footer Links:">
+										<field jcr:primaryType="nt:unstructured"
+											sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+											name="./footerLinks">
+											<items jcr:primaryType="nt:unstructured">
+												<column jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/container">
+													<items jcr:primaryType="nt:unstructured">
+														<linkText jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+															fieldLabel="Link Text:" name="./linkText" />
+														<linkURL jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+															fieldLabel="Link URL:" name="./linkURL" />
+														<linkTarget jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/select"
+															fieldLabel="Open URL In" name="./linkTarget">
+															<items jcr:primaryType="nt:unstructured">
+																<sameWindow jcr:primaryType="nt:unstructured"
+																	text="Same Window" value="sameWindow" />
+																<newTab jcr:primaryType="nt:unstructured"
+																	text="New Tab" value="tabWindow" />
+																<newWindow
+																	granite:hide="${cqDesign.disableSearch}"
+																	jcr:primaryType="nt:unstructured" text="New Window"
+																	value="newWindow" />
+															</items>
+														</linkTarget>
+														<alwaysEnglish
+															jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+															fieldDescription="Always English check for Multi-Lingual  Site Tagging"
+															fieldLabel="Adobe Tracking Name" name="./alwaysEnglish" />
+													</items>
+												</column>
+											</items>
+										</field>
+									</footerLinks>
+									<copyright cq:xfVariantType="web"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+										fieldDescription="copyright" fieldLabel="Copyright"
+										height="20" name="./copyright" required="{Boolean}true"
+										useFixedInlineToolbar="{Boolean}true">
+										<htmlRules jcr:primaryType="nt:unstructured">
+											<docType jcr:primaryType="nt:unstructured" />
+											<blockHandling
+												jcr:primaryType="nt:unstructured"
+												removeSingleParagraphContainer="{Boolean}true" />
+										</htmlRules>
+										<rtePlugins jcr:primaryType="nt:unstructured">
+											<format jcr:primaryType="nt:unstructured" features="*" />
+											<justify jcr:primaryType="nt:unstructured"
+												features="*" />
+											<links jcr:primaryType="nt:unstructured" features="*" />
+											<misctools jcr:primaryType="nt:unstructured"
+												features="specialchars">
+												<specialCharsConfig
+													jcr:primaryType="nt:unstructured">
+													<chars jcr:primaryType="nt:unstructured">
+														<dottedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8672;" />
+														<dottedRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8674;" />
+														<dottedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8673;" />
+														<dottedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8675;" />
+														<doubleHeadedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8606;" />
+														<doubleHeadedRighttArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8608;" />
+														<doubleHeadedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8607;" />
+														<doubleHeadedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8609;" />
+														<simpleLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;larr;" />
+														<simpleRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;rarr;" />
+														<simpleUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;uarr;" />
+														<simpleDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;darr;" />
+														<simpleLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;harr;" />
+														<simpleUpDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8597;" />
+														<doubleLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8644;" />
+														<doubleUpDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8645;" />
+														<tailedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8610;" />
+														<tailedRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8611;" />
+														<doubleStrokeUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8670;" />
+														<doubleStrokeDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8671;" />
+														<loopLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8619;" />
+														<loopRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8620;" />
+														<squiggleLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8668;" />
+														<squiggleRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8669;" />
+														<leftStrokeArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8602;" />
+														<rightStrokeArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8603;" />
+														<strokedLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8622;" />
+														<squiggleLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8621;" />
+														<outlinedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8678;" />
+														<outlinedRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8680;" />
+														<outlinedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8679;" />
+														<outlinedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8681;" />
+														<curvedClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8631;" />
+														<curvedAntiClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8630;" />
+														<reloadClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8635;" />
+														<reloadAntiClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8634;" />
+														<reloadCircleClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10227;" />
+														<reloadCircleAntiClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10226;" />
+														<quadrupleUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10224;" />
+														<quadrupleDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10225;" />
+														<returnArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;crarr;" />
+														<zigzagDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8623;" />
+														<upDownloadArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8693;" />
+														<arrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10132;" />
+														<thinArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10137;" />
+														<thickArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10152;" />
+														<circledArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10162;" />
+														<roundTippedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10140;" />
+														<tiangleHeadedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10142;" />
+														<dashedArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10143;" />
+														<heavyDashedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10144;" />
+														<arrowHead jcr:primaryType="nt:unstructured"
+															entity="&amp;#10148;" />
+														<curvedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10149;" />
+														<curvedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10150;" />
+														<squatedShortArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10151;" />
+														<wedgedTailLineArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10165;" />
+														<wedgedTailSlimArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10168;" />
+														<wedgedTailMediumArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10172;" />
+														<wedgedTailHeavyArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10173;" />
+														<tearDroppedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10170;" />
+														<featheredArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10163;" />
+														<outlinedRectangularArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10174;" />
+														<upTriangle jcr:primaryType="nt:unstructured"
+															entity="&amp;#9650;" />
+														<rightTriangle
+															jcr:primaryType="nt:unstructured" entity="&amp;#9658;" />
+														<downTriangle
+															jcr:primaryType="nt:unstructured" entity="&amp;#9660;" />
+														<leftTriangle
+															jcr:primaryType="nt:unstructured" entity="&amp;#9668;" />
+														<heavyHeart jcr:primaryType="nt:unstructured"
+															entity="&amp;#10084;" />
+														<plane jcr:primaryType="nt:unstructured"
+															entity="&amp;#9992;" />
+														<star jcr:primaryType="nt:unstructured"
+															entity="&amp;#9733;" />
+														<fourPointStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10022;" />
+														<sunshine jcr:primaryType="nt:unstructured"
+															entity="&amp;#9728;" />
+														<diamond jcr:primaryType="nt:unstructured"
+															entity="&amp;diams;" />
+														<diamondWithDot
+															jcr:primaryType="nt:unstructured" entity="&amp;#9672;" />
+														<blockWithDot
+															jcr:primaryType="nt:unstructured" entity="&amp;#9635;" />
+														<guillemetLeft
+															jcr:primaryType="nt:unstructured" entity="&amp;laquo;" />
+														<guillemetRight
+															jcr:primaryType="nt:unstructured" entity="&amp;raquo;" />
+														<angleQuoteLeft
+															jcr:primaryType="nt:unstructured" entity="&amp;lsaquo;" />
+														<angleQuoteRight
+															jcr:primaryType="nt:unstructured" entity="&amp;rsaquo;" />
+														<quoteDoubleOpen
+															jcr:primaryType="nt:unstructured" entity="&amp;#8220;" />
+														<quoteDoubleClosed
+															jcr:primaryType="nt:unstructured" entity="&amp;#8221;" />
+														<quoteOpen jcr:primaryType="nt:unstructured"
+															entity="&amp;#8216;" />
+														<quoteClosed jcr:primaryType="nt:unstructured"
+															entity="&amp;#8217;" />
+														<bullet jcr:primaryType="nt:unstructured"
+															entity="&amp;bull;" />
+														<bulletOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9702;" />
+														<invertedExclamation
+															jcr:primaryType="nt:unstructured" entity="&amp;iexcl;" />
+														<invertedQuestion
+															jcr:primaryType="nt:unstructured" entity="&amp;iquest" />
+														<inCareOf jcr:primaryType="nt:unstructured"
+															entity="&amp;#8453;" />
+														<numberSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#8470;" />
+														<ampersand jcr:primaryType="nt:unstructured"
+															entity="&amp;amp;" />
+														<atSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#64;" />
+														<ellipsis jcr:primaryType="nt:unstructured"
+															entity="&amp;hellip;" />
+														<paragraphSign
+															jcr:primaryType="nt:unstructured" entity="&amp;para;" />
+														<triangleBullet
+															jcr:primaryType="nt:unstructured" entity="&amp;#8227;" />
+														<sectionMark jcr:primaryType="nt:unstructured"
+															entity="&amp;sect;" />
+														<prescription
+															jcr:primaryType="nt:unstructured" entity="&amp;#8478;" />
+														<celsius jcr:primaryType="nt:unstructured"
+															entity="&amp;#8451;" />
+														<fahrenheit jcr:primaryType="nt:unstructured"
+															entity="&amp;#8457;" />
+														<degree jcr:primaryType="nt:unstructured"
+															entity="&amp;deg;" />
+														<verticalBar jcr:primaryType="nt:unstructured"
+															entity="&amp;#124;" />
+														<brokenVerticalBar
+															jcr:primaryType="nt:unstructured" entity="&amp;brvbar;" />
+														<ndash jcr:primaryType="nt:unstructured"
+															entity="&amp;ndash;" />
+														<mdash jcr:primaryType="nt:unstructured"
+															entity="&amp;mdash;" />
+														<tilde jcr:primaryType="nt:unstructured"
+															entity="&amp;tilde;" />
+														<notEqual jcr:primaryType="nt:unstructured"
+															entity="&amp;#8800;" />
+														<fWithHook jcr:primaryType="nt:unstructured"
+															entity="&amp;fnof;" />
+														<registeredTrademark
+															jcr:primaryType="nt:unstructured" entity="&amp;reg;" />
+														<copyright jcr:primaryType="nt:unstructured"
+															entity="&amp;copy;" />
+														<trademark jcr:primaryType="nt:unstructured"
+															entity="&amp;trade;" />
+														<copyrightMusic
+															jcr:primaryType="nt:unstructured" entity="&amp;#8471;" />
+														<serviceMark jcr:primaryType="nt:unstructured"
+															entity="&amp;#8480;" />
+														<americanDollar
+															jcr:primaryType="nt:unstructured" entity="&amp;#36;" />
+														<americanCent
+															jcr:primaryType="nt:unstructured" entity="&amp;cent;" />
+														<britishPound
+															jcr:primaryType="nt:unstructured" entity="&amp;pound;" />
+														<currencySymbol
+															jcr:primaryType="nt:unstructured" entity="&amp;curren;" />
+														<europeanEuro
+															jcr:primaryType="nt:unstructured" entity="&amp;euro;" />
+														<japaneseYen jcr:primaryType="nt:unstructured"
+															entity="&amp;yen;" />
+														<peso jcr:primaryType="nt:unstructured"
+															entity="&amp;#8369;" />
+														<indianRupee jcr:primaryType="nt:unstructured"
+															entity="&amp;#8377;" />
+														<oneHalf jcr:primaryType="nt:unstructured"
+															entity="&amp;frac12;" />
+														<oneFourth jcr:primaryType="nt:unstructured"
+															entity="&amp;frac14;" />
+														<threeFourth jcr:primaryType="nt:unstructured"
+															entity="&amp;frac34;" />
+														<oneThird jcr:primaryType="nt:unstructured"
+															entity="&amp;frac13;" />
+														<twoThird jcr:primaryType="nt:unstructured"
+															entity="&amp;frac23;" />
+														<oneEighth jcr:primaryType="nt:unstructured"
+															entity="&amp;frac18;" />
+														<threeEighths
+															jcr:primaryType="nt:unstructured" entity="&amp;frac38;" />
+														<fiveEighths jcr:primaryType="nt:unstructured"
+															entity="&amp;frac58;" />
+														<perMilleSign
+															jcr:primaryType="nt:unstructured" entity="&amp;permil;" />
+														<percentSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#37;" />
+														<lesserthan jcr:primaryType="nt:unstructured"
+															entity="&amp;lt;" />
+														<greaterthan jcr:primaryType="nt:unstructured"
+															entity="&amp;gt;" />
+														<quaterNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9833;" />
+														<eigthNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9834;" />
+														<singleNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9835;" />
+														<doubleNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9836;" />
+														<flatNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9837;" />
+														<sharpNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9839;" />
+														<blankSpace jcr:primaryType="nt:unstructured"
+															entity="&amp;#160;" />
+														<box jcr:primaryType="nt:unstructured"
+															entity="&amp;#9744;" />
+														<boxChecked jcr:primaryType="nt:unstructured"
+															entity="&amp;#9745;" />
+														<boxX jcr:primaryType="nt:unstructured"
+															entity="&amp;#9746;" />
+														<check jcr:primaryType="nt:unstructured"
+															entity="&amp;#10003;" />
+														<checkHeavy jcr:primaryType="nt:unstructured"
+															entity="&amp;#10004;" />
+														<xLight jcr:primaryType="nt:unstructured"
+															entity="&amp;#10005;" />
+														<xHeavy jcr:primaryType="nt:unstructured"
+															entity="&amp;#10006;" />
+														<xBallot jcr:primaryType="nt:unstructured"
+															entity="&amp;#10007;" />
+														<xBallotHeavy
+															jcr:primaryType="nt:unstructured" entity="&amp;#10008;" />
+														<patriarchalCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#9768;" />
+														<greekCross jcr:primaryType="nt:unstructured"
+															entity="&amp;#9769;" />
+														<latinRomanCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10013;" />
+														<cross3d jcr:primaryType="nt:unstructured"
+															entity="&amp;#10014;" />
+														<latinCrossOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#10015;" />
+														<malteseCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10016;" />
+														<medicalCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10010;" />
+														<daggerCross jcr:primaryType="nt:unstructured"
+															entity="&amp;#8224;" />
+														<tearDropCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10018;" />
+														<tearDropHeavyCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10020;" />
+														<tearDropOutlineCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10019;" />
+														<clubSpoked jcr:primaryType="nt:unstructured"
+															entity="&amp;#10021;" />
+														<outerlinedStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10029;" />
+														<outerlinedDarkStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10030;" />
+														<starOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9734;" />
+														<starCircle jcr:primaryType="nt:unstructured"
+															entity="&amp;#10050;" />
+														<starOfDavid jcr:primaryType="nt:unstructured"
+															entity="&amp;#10017;" />
+														<fivepointBeveledStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10031;" />
+														<eightpointBeveledStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10037;" />
+														<sixpointStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10038;" />
+														<eightpointStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10040;" />
+														<eightpointHeavyStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10041;" />
+														<sixteenpointAsterisk
+															jcr:primaryType="nt:unstructured" entity="&amp;#10042;" />
+														<heavyAsterisk
+															jcr:primaryType="nt:unstructured" entity="&amp;#10033;" />
+														<openCenter jcr:primaryType="nt:unstructured"
+															entity="&amp;#10034;" />
+														<eightpointHeavy
+															jcr:primaryType="nt:unstructured" entity="&amp;#10036;" />
+														<eightpoint jcr:primaryType="nt:unstructured"
+															entity="&amp;#10035;" />
+														<sixpointTearDrop
+															jcr:primaryType="nt:unstructured" entity="&amp;#10043;" />
+														<sixpointHeavyTearDrop
+															jcr:primaryType="nt:unstructured" entity="&amp;#10045;" />
+														<eightpointPropeller
+															jcr:primaryType="nt:unstructured" entity="&amp;#10059;" />
+														<snowflakCheveron
+															jcr:primaryType="nt:unstructured" entity="&amp;#10054;" />
+														<snowflak jcr:primaryType="nt:unstructured"
+															entity="&amp;#10052;" />
+														<snowflakHeavy
+															jcr:primaryType="nt:unstructured" entity="&amp;#10053;" />
+														<happyFace jcr:primaryType="nt:unstructured"
+															entity="&amp;#9787;" />
+														<smileyFaceOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9786;" />
+														<sadFaceOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9785;" />
+														<email jcr:primaryType="nt:unstructured"
+															entity="&amp;#9993;" />
+														<phone jcr:primaryType="nt:unstructured"
+															entity="&amp;#9742;" />
+														<phoneOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9743;" />
+														<payPhone jcr:primaryType="nt:unstructured"
+															entity="&amp;#9990;" />
+														<replacementChar
+															jcr:primaryType="nt:unstructured" entity="&amp;#65533;" />
+														<cloud jcr:primaryType="nt:unstructured"
+															entity="&amp;#9729;" />
+														<umbrella jcr:primaryType="nt:unstructured"
+															entity="&amp;#9730;" />
+														<snowman jcr:primaryType="nt:unstructured"
+															entity="&amp;#9731;" />
+														<sixPointSparkle
+															jcr:primaryType="nt:unstructured" entity="&amp;#10056;" />
+														<heavyFlorette
+															jcr:primaryType="nt:unstructured" entity="&amp;#10047;" />
+														<outlinedFlorette
+															jcr:primaryType="nt:unstructured" entity="&amp;#10048;" />
+														<eightPetaledFlorette
+															jcr:primaryType="nt:unstructured" entity="&amp;#10168;" />
+														<shamrock jcr:primaryType="nt:unstructured"
+															entity="&amp;#9752;" />
+														<floralHeart jcr:primaryType="nt:unstructured"
+															entity="&amp;#10086;" />
+														<hotBeverage jcr:primaryType="nt:unstructured"
+															entity="&amp;#9749;" />
+														<ankh jcr:primaryType="nt:unstructured"
+															entity="&amp;#9765;" />
+														<peaceSymbol jcr:primaryType="nt:unstructured"
+															entity="&amp;#9774;" />
+														<yingYang jcr:primaryType="nt:unstructured"
+															entity="&amp;#9775;" />
+														<starAndCresent
+															jcr:primaryType="nt:unstructured" entity="&amp;#9770;" />
+														<doctorHealingCaduceus
+															jcr:primaryType="nt:unstructured" entity="&amp;#9764;" />
+														<sissorsOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9988;" />
+														<sissors jcr:primaryType="nt:unstructured"
+															entity="&amp;#9986;" />
+														<dharmaWheelShip
+															jcr:primaryType="nt:unstructured" entity="&amp;#9784;" />
+														<anchor jcr:primaryType="nt:unstructured"
+															entity="&amp;#9875;" />
+														<biohazard jcr:primaryType="nt:unstructured"
+															entity="&amp;#9763;" />
+														<warningSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#9888;" />
+														<highVoltage jcr:primaryType="nt:unstructured"
+															entity="&amp;#9889;" />
+														<radioactvie jcr:primaryType="nt:unstructured"
+															entity="&amp;#9762;" />
+														<recycle jcr:primaryType="nt:unstructured"
+															entity="&amp;#9851;" />
+														<handicapSymbol
+															jcr:primaryType="nt:unstructured" entity="&amp;#9855;" />
+														<skullCrossbones
+															jcr:primaryType="nt:unstructured" entity="&amp;#9760;" />
+														<pointingHandLeft
+															jcr:primaryType="nt:unstructured" entity="&amp;#9758;" />
+														<pointingUp jcr:primaryType="nt:unstructured"
+															entity="&amp;#9757;" />
+														<pointingDown
+															jcr:primaryType="nt:unstructured" entity="&amp;#9759;" />
+														<peaceSignHand
+															jcr:primaryType="nt:unstructured" entity="&amp;#9996;" />
+														<signingWriting
+															jcr:primaryType="nt:unstructured" entity="&amp;#9997;" />
+														<pencilDown jcr:primaryType="nt:unstructured"
+															entity="&amp;#9998;" />
+														<pencilUp jcr:primaryType="nt:unstructured"
+															entity="&amp;#10000;" />
+														<pencil jcr:primaryType="nt:unstructured"
+															entity="&amp;#9999;" />
+														<penSolid jcr:primaryType="nt:unstructured"
+															entity="&amp;#10001;" />
+														<penOutlined jcr:primaryType="nt:unstructured"
+															entity="&amp;#10002;" />
+														<waxingMoon jcr:primaryType="nt:unstructured"
+															entity="&amp;#9789;" />
+														<waningMoon jcr:primaryType="nt:unstructured"
+															entity="&amp;#9790;" />
+														<mars jcr:primaryType="nt:unstructured"
+															entity="&amp;#9794;" />
+														<venus jcr:primaryType="nt:unstructured"
+															entity="&amp;#9792;" />
+														<mercury jcr:primaryType="nt:unstructured"
+															entity="&amp;#9791;" />
+														<earth jcr:primaryType="nt:unstructured"
+															entity="&amp;#9793;" />
+														<jupiter jcr:primaryType="nt:unstructured"
+															entity="&amp;#9795;" />
+														<saturn jcr:primaryType="nt:unstructured"
+															entity="&amp;#9796;" />
+														<uranus jcr:primaryType="nt:unstructured"
+															entity="&amp;#9797;" />
+														<neptune jcr:primaryType="nt:unstructured"
+															entity="&amp;#9798;" />
+														<pluto jcr:primaryType="nt:unstructured"
+															entity="&amp;#9799;" />
+														<aries jcr:primaryType="nt:unstructured"
+															entity="&amp;#9800;" />
+														<taurus jcr:primaryType="nt:unstructured"
+															entity="&amp;#9801;" />
+														<gemini jcr:primaryType="nt:unstructured"
+															entity="&amp;#9802;" />
+														<cancer jcr:primaryType="nt:unstructured"
+															entity="&amp;#9803;" />
+														<leo jcr:primaryType="nt:unstructured"
+															entity="&amp;#9804;" />
+														<virgo jcr:primaryType="nt:unstructured"
+															entity="&amp;#9805;" />
+														<libra jcr:primaryType="nt:unstructured"
+															entity="&amp;#9806;" />
+														<scorpius jcr:primaryType="nt:unstructured"
+															entity="&amp;#9807;" />
+														<sagittarius jcr:primaryType="nt:unstructured"
+															entity="&amp;#9809;" />
+														<aquarius jcr:primaryType="nt:unstructured"
+															entity="&amp;#9810;" />
+														<pisces jcr:primaryType="nt:unstructured"
+															entity="&amp;#9811;" />
+														<king jcr:primaryType="nt:unstructured"
+															entity="&amp;#9818;" />
+														<queen jcr:primaryType="nt:unstructured"
+															entity="&amp;#9819;" />
+														<rook jcr:primaryType="nt:unstructured"
+															entity="&amp;#9820;" />
+														<bishop jcr:primaryType="nt:unstructured"
+															entity="&amp;#9821;" />
+														<knight jcr:primaryType="nt:unstructured"
+															entity="&amp;#9822;" />
+														<pawn jcr:primaryType="nt:unstructured"
+															entity="&amp;#9823;" />
+														<kingOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9812;" />
+														<queenOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9813;" />
+														<rookOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9814;" />
+														<bishopOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9815;" />
+														<knightOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9816;" />
+														<pawnOultined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9817;" />
+														<spades jcr:primaryType="nt:unstructured"
+															entity="&amp;spades;" />
+														<clubs jcr:primaryType="nt:unstructured"
+															entity="&amp;clubs;" />
+														<hearts jcr:primaryType="nt:unstructured"
+															entity="&amp;hearts;" />
+														<spadesOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9828;" />
+														<clubsOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9831;" />
+														<heartsOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9825;" />
+														<diamondOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9826;" />
+														<alpha jcr:primaryType="nt:unstructured"
+															entity="&amp;Alpha;" />
+														<beta jcr:primaryType="nt:unstructured"
+															entity="&amp;Beta;" />
+														<gamma jcr:primaryType="nt:unstructured"
+															entity="&amp;Gamma;" />
+														<delta jcr:primaryType="nt:unstructured"
+															entity="&amp;Delta;" />
+														<epsilon jcr:primaryType="nt:unstructured"
+															entity="&amp;Epsilon;" />
+														<zeta jcr:primaryType="nt:unstructured"
+															entity="&amp;Zeta;" />
+														<eta jcr:primaryType="nt:unstructured"
+															entity="&amp;Eta;" />
+														<theta jcr:primaryType="nt:unstructured"
+															entity="&amp;Theta;" />
+														<iota jcr:primaryType="nt:unstructured"
+															entity="&amp;Iota;" />
+														<kappa jcr:primaryType="nt:unstructured"
+															entity="&amp;Kappa;" />
+														<lambda jcr:primaryType="nt:unstructured"
+															entity="&amp;Lambda;" />
+														<mu jcr:primaryType="nt:unstructured" entity="&amp;Mu;" />
+														<xi jcr:primaryType="nt:unstructured" entity="&amp;Xi;" />
+														<omicron jcr:primaryType="nt:unstructured"
+															entity="&amp;Omicron;" />
+														<phi jcr:primaryType="nt:unstructured"
+															entity="&amp;Phi;" />
+														<eho jcr:primaryType="nt:unstructured"
+															entity="&amp;Rho;" />
+														<sigma jcr:primaryType="nt:unstructured"
+															entity="&amp;Sigma;" />
+														<tau jcr:primaryType="nt:unstructured"
+															entity="&amp;Tau;" />
+														<upsilon jcr:primaryType="nt:unstructured"
+															entity="&amp;Upsilon;" />
+														<chi jcr:primaryType="nt:unstructured"
+															entity="&amp;Chi;" />
+														<psi jcr:primaryType="nt:unstructured"
+															entity="&amp;Psi;" />
+														<omega jcr:primaryType="nt:unstructured"
+															entity="&amp;Omega;" />
+													</chars>
+												</specialCharsConfig>
+											</misctools>
+											<styles jcr:primaryType="nt:unstructured" features="*">
+												<styles jcr:primaryType="cq:WidgetCollection">
+													<arialRounded
+														jcr:primaryType="nt:unstructured" cssName="arialRounded"
+														text="ArialRounded" />
+													<swissBoldRounded
+														jcr:primaryType="nt:unstructured"
+														cssName="swissBoldRounded" text="SwissBoldRounded" />
+													<swissBlackRounded
+														jcr:primaryType="nt:unstructured"
+														cssName="swissBlackRounded" text="SwissBlackRounded" />
+												</styles>
+											</styles>
+											<experience-aem
+												jcr:primaryType="nt:unstructured" features="*" />
+											<ecm-font-weight
+												jcr:primaryType="nt:unstructured" features="*" />
+										</rtePlugins>
+										<uiSettings jcr:primaryType="nt:unstructured">
+											<cui jcr:primaryType="nt:unstructured">
+												<inline jcr:primaryType="nt:unstructured"
+													toolbar="[format#bold,format#italic,format#underline,#paraformat,image#imageProps,#justify,#lists,misctools#specialchars,#styles,experience-aem#colorPicker,links#unlink,links#modifylink,ecm-font-weight#fontWeightPicker]">
+													<popovers jcr:primaryType="nt:unstructured">
+														<justify jcr:primaryType="nt:unstructured"
+															items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+															ref="justify" />
+														<styles jcr:primaryType="nt:unstructured"
+															items="styles:getStyles:styles-pulldown" ref="styles" />
+													</popovers>
+												</inline>
+												<dialogFullScreen
+													jcr:primaryType="nt:unstructured"
+													toolbar="[format#bold,format#italic,format#underline,#paraformat,image#imageProps,#justify,#lists,misctools#specialchars,#styles,experience-aem#colorPicker,links#unlink,links#modifylink,ecm-font-weight#fontWeightPicker]">
+													<popovers jcr:primaryType="nt:unstructured">
+														<justify jcr:primaryType="nt:unstructured"
+															items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+															ref="justify" />
+														<styles jcr:primaryType="nt:unstructured"
+															items="styles:getStyles:styles-pulldown" ref="styles" />
+													</popovers>
+												</dialogFullScreen>
+											</cui>
+										</uiSettings>
+									</copyright>
+									<leagalText cq:xfVariantType="web"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+										fieldDescription="Leagal Text" fieldLabel="Leagal Text"
+										height="20" name="./leagalText"
+										useFixedInlineToolbar="{Boolean}true">
+										<htmlRules jcr:primaryType="nt:unstructured">
+											<docType jcr:primaryType="nt:unstructured" />
+											<blockHandling
+												jcr:primaryType="nt:unstructured"
+												removeSingleParagraphContainer="{Boolean}true" />
+										</htmlRules>
+										<rtePlugins jcr:primaryType="nt:unstructured">
+											<format jcr:primaryType="nt:unstructured" features="*" />
+											<justify jcr:primaryType="nt:unstructured"
+												features="*" />
+											<links jcr:primaryType="nt:unstructured" features="*" />
+											<misctools jcr:primaryType="nt:unstructured"
+												features="specialchars">
+												<specialCharsConfig
+													jcr:primaryType="nt:unstructured">
+													<chars jcr:primaryType="nt:unstructured">
+														<dottedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8672;" />
+														<dottedRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8674;" />
+														<dottedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8673;" />
+														<dottedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8675;" />
+														<doubleHeadedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8606;" />
+														<doubleHeadedRighttArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8608;" />
+														<doubleHeadedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8607;" />
+														<doubleHeadedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8609;" />
+														<simpleLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;larr;" />
+														<simpleRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;rarr;" />
+														<simpleUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;uarr;" />
+														<simpleDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;darr;" />
+														<simpleLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;harr;" />
+														<simpleUpDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8597;" />
+														<doubleLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8644;" />
+														<doubleUpDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8645;" />
+														<tailedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8610;" />
+														<tailedRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8611;" />
+														<doubleStrokeUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8670;" />
+														<doubleStrokeDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8671;" />
+														<loopLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8619;" />
+														<loopRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8620;" />
+														<squiggleLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8668;" />
+														<squiggleRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8669;" />
+														<leftStrokeArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8602;" />
+														<rightStrokeArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8603;" />
+														<strokedLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8622;" />
+														<squiggleLeftRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8621;" />
+														<outlinedLeftArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8678;" />
+														<outlinedRightArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8680;" />
+														<outlinedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8679;" />
+														<outlinedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8681;" />
+														<curvedClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8631;" />
+														<curvedAntiClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8630;" />
+														<reloadClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8635;" />
+														<reloadAntiClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8634;" />
+														<reloadCircleClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10227;" />
+														<reloadCircleAntiClockArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10226;" />
+														<quadrupleUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10224;" />
+														<quadrupleDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10225;" />
+														<returnArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;crarr;" />
+														<zigzagDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8623;" />
+														<upDownloadArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#8693;" />
+														<arrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10132;" />
+														<thinArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10137;" />
+														<thickArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10152;" />
+														<circledArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10162;" />
+														<roundTippedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10140;" />
+														<tiangleHeadedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10142;" />
+														<dashedArrow jcr:primaryType="nt:unstructured"
+															entity="&amp;#10143;" />
+														<heavyDashedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10144;" />
+														<arrowHead jcr:primaryType="nt:unstructured"
+															entity="&amp;#10148;" />
+														<curvedUpArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10149;" />
+														<curvedDownArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10150;" />
+														<squatedShortArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10151;" />
+														<wedgedTailLineArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10165;" />
+														<wedgedTailSlimArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10168;" />
+														<wedgedTailMediumArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10172;" />
+														<wedgedTailHeavyArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10173;" />
+														<tearDroppedArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10170;" />
+														<featheredArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10163;" />
+														<outlinedRectangularArrow
+															jcr:primaryType="nt:unstructured" entity="&amp;#10174;" />
+														<upTriangle jcr:primaryType="nt:unstructured"
+															entity="&amp;#9650;" />
+														<rightTriangle
+															jcr:primaryType="nt:unstructured" entity="&amp;#9658;" />
+														<downTriangle
+															jcr:primaryType="nt:unstructured" entity="&amp;#9660;" />
+														<leftTriangle
+															jcr:primaryType="nt:unstructured" entity="&amp;#9668;" />
+														<heavyHeart jcr:primaryType="nt:unstructured"
+															entity="&amp;#10084;" />
+														<plane jcr:primaryType="nt:unstructured"
+															entity="&amp;#9992;" />
+														<star jcr:primaryType="nt:unstructured"
+															entity="&amp;#9733;" />
+														<fourPointStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10022;" />
+														<sunshine jcr:primaryType="nt:unstructured"
+															entity="&amp;#9728;" />
+														<diamond jcr:primaryType="nt:unstructured"
+															entity="&amp;diams;" />
+														<diamondWithDot
+															jcr:primaryType="nt:unstructured" entity="&amp;#9672;" />
+														<blockWithDot
+															jcr:primaryType="nt:unstructured" entity="&amp;#9635;" />
+														<guillemetLeft
+															jcr:primaryType="nt:unstructured" entity="&amp;laquo;" />
+														<guillemetRight
+															jcr:primaryType="nt:unstructured" entity="&amp;raquo;" />
+														<angleQuoteLeft
+															jcr:primaryType="nt:unstructured" entity="&amp;lsaquo;" />
+														<angleQuoteRight
+															jcr:primaryType="nt:unstructured" entity="&amp;rsaquo;" />
+														<quoteDoubleOpen
+															jcr:primaryType="nt:unstructured" entity="&amp;#8220;" />
+														<quoteDoubleClosed
+															jcr:primaryType="nt:unstructured" entity="&amp;#8221;" />
+														<quoteOpen jcr:primaryType="nt:unstructured"
+															entity="&amp;#8216;" />
+														<quoteClosed jcr:primaryType="nt:unstructured"
+															entity="&amp;#8217;" />
+														<bullet jcr:primaryType="nt:unstructured"
+															entity="&amp;bull;" />
+														<bulletOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9702;" />
+														<invertedExclamation
+															jcr:primaryType="nt:unstructured" entity="&amp;iexcl;" />
+														<invertedQuestion
+															jcr:primaryType="nt:unstructured" entity="&amp;iquest" />
+														<inCareOf jcr:primaryType="nt:unstructured"
+															entity="&amp;#8453;" />
+														<numberSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#8470;" />
+														<ampersand jcr:primaryType="nt:unstructured"
+															entity="&amp;amp;" />
+														<atSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#64;" />
+														<ellipsis jcr:primaryType="nt:unstructured"
+															entity="&amp;hellip;" />
+														<paragraphSign
+															jcr:primaryType="nt:unstructured" entity="&amp;para;" />
+														<triangleBullet
+															jcr:primaryType="nt:unstructured" entity="&amp;#8227;" />
+														<sectionMark jcr:primaryType="nt:unstructured"
+															entity="&amp;sect;" />
+														<prescription
+															jcr:primaryType="nt:unstructured" entity="&amp;#8478;" />
+														<celsius jcr:primaryType="nt:unstructured"
+															entity="&amp;#8451;" />
+														<fahrenheit jcr:primaryType="nt:unstructured"
+															entity="&amp;#8457;" />
+														<degree jcr:primaryType="nt:unstructured"
+															entity="&amp;deg;" />
+														<verticalBar jcr:primaryType="nt:unstructured"
+															entity="&amp;#124;" />
+														<brokenVerticalBar
+															jcr:primaryType="nt:unstructured" entity="&amp;brvbar;" />
+														<ndash jcr:primaryType="nt:unstructured"
+															entity="&amp;ndash;" />
+														<mdash jcr:primaryType="nt:unstructured"
+															entity="&amp;mdash;" />
+														<tilde jcr:primaryType="nt:unstructured"
+															entity="&amp;tilde;" />
+														<notEqual jcr:primaryType="nt:unstructured"
+															entity="&amp;#8800;" />
+														<fWithHook jcr:primaryType="nt:unstructured"
+															entity="&amp;fnof;" />
+														<registeredTrademark
+															jcr:primaryType="nt:unstructured" entity="&amp;reg;" />
+														<copyright jcr:primaryType="nt:unstructured"
+															entity="&amp;copy;" />
+														<trademark jcr:primaryType="nt:unstructured"
+															entity="&amp;trade;" />
+														<copyrightMusic
+															jcr:primaryType="nt:unstructured" entity="&amp;#8471;" />
+														<serviceMark jcr:primaryType="nt:unstructured"
+															entity="&amp;#8480;" />
+														<americanDollar
+															jcr:primaryType="nt:unstructured" entity="&amp;#36;" />
+														<americanCent
+															jcr:primaryType="nt:unstructured" entity="&amp;cent;" />
+														<britishPound
+															jcr:primaryType="nt:unstructured" entity="&amp;pound;" />
+														<currencySymbol
+															jcr:primaryType="nt:unstructured" entity="&amp;curren;" />
+														<europeanEuro
+															jcr:primaryType="nt:unstructured" entity="&amp;euro;" />
+														<japaneseYen jcr:primaryType="nt:unstructured"
+															entity="&amp;yen;" />
+														<peso jcr:primaryType="nt:unstructured"
+															entity="&amp;#8369;" />
+														<indianRupee jcr:primaryType="nt:unstructured"
+															entity="&amp;#8377;" />
+														<oneHalf jcr:primaryType="nt:unstructured"
+															entity="&amp;frac12;" />
+														<oneFourth jcr:primaryType="nt:unstructured"
+															entity="&amp;frac14;" />
+														<threeFourth jcr:primaryType="nt:unstructured"
+															entity="&amp;frac34;" />
+														<oneThird jcr:primaryType="nt:unstructured"
+															entity="&amp;frac13;" />
+														<twoThird jcr:primaryType="nt:unstructured"
+															entity="&amp;frac23;" />
+														<oneEighth jcr:primaryType="nt:unstructured"
+															entity="&amp;frac18;" />
+														<threeEighths
+															jcr:primaryType="nt:unstructured" entity="&amp;frac38;" />
+														<fiveEighths jcr:primaryType="nt:unstructured"
+															entity="&amp;frac58;" />
+														<perMilleSign
+															jcr:primaryType="nt:unstructured" entity="&amp;permil;" />
+														<percentSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#37;" />
+														<lesserthan jcr:primaryType="nt:unstructured"
+															entity="&amp;lt;" />
+														<greaterthan jcr:primaryType="nt:unstructured"
+															entity="&amp;gt;" />
+														<quaterNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9833;" />
+														<eigthNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9834;" />
+														<singleNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9835;" />
+														<doubleNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9836;" />
+														<flatNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9837;" />
+														<sharpNote jcr:primaryType="nt:unstructured"
+															entity="&amp;#9839;" />
+														<blankSpace jcr:primaryType="nt:unstructured"
+															entity="&amp;#160;" />
+														<box jcr:primaryType="nt:unstructured"
+															entity="&amp;#9744;" />
+														<boxChecked jcr:primaryType="nt:unstructured"
+															entity="&amp;#9745;" />
+														<boxX jcr:primaryType="nt:unstructured"
+															entity="&amp;#9746;" />
+														<check jcr:primaryType="nt:unstructured"
+															entity="&amp;#10003;" />
+														<checkHeavy jcr:primaryType="nt:unstructured"
+															entity="&amp;#10004;" />
+														<xLight jcr:primaryType="nt:unstructured"
+															entity="&amp;#10005;" />
+														<xHeavy jcr:primaryType="nt:unstructured"
+															entity="&amp;#10006;" />
+														<xBallot jcr:primaryType="nt:unstructured"
+															entity="&amp;#10007;" />
+														<xBallotHeavy
+															jcr:primaryType="nt:unstructured" entity="&amp;#10008;" />
+														<patriarchalCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#9768;" />
+														<greekCross jcr:primaryType="nt:unstructured"
+															entity="&amp;#9769;" />
+														<latinRomanCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10013;" />
+														<cross3d jcr:primaryType="nt:unstructured"
+															entity="&amp;#10014;" />
+														<latinCrossOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#10015;" />
+														<malteseCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10016;" />
+														<medicalCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10010;" />
+														<daggerCross jcr:primaryType="nt:unstructured"
+															entity="&amp;#8224;" />
+														<tearDropCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10018;" />
+														<tearDropHeavyCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10020;" />
+														<tearDropOutlineCross
+															jcr:primaryType="nt:unstructured" entity="&amp;#10019;" />
+														<clubSpoked jcr:primaryType="nt:unstructured"
+															entity="&amp;#10021;" />
+														<outerlinedStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10029;" />
+														<outerlinedDarkStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10030;" />
+														<starOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9734;" />
+														<starCircle jcr:primaryType="nt:unstructured"
+															entity="&amp;#10050;" />
+														<starOfDavid jcr:primaryType="nt:unstructured"
+															entity="&amp;#10017;" />
+														<fivepointBeveledStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10031;" />
+														<eightpointBeveledStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10037;" />
+														<sixpointStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10038;" />
+														<eightpointStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10040;" />
+														<eightpointHeavyStar
+															jcr:primaryType="nt:unstructured" entity="&amp;#10041;" />
+														<sixteenpointAsterisk
+															jcr:primaryType="nt:unstructured" entity="&amp;#10042;" />
+														<heavyAsterisk
+															jcr:primaryType="nt:unstructured" entity="&amp;#10033;" />
+														<openCenter jcr:primaryType="nt:unstructured"
+															entity="&amp;#10034;" />
+														<eightpointHeavy
+															jcr:primaryType="nt:unstructured" entity="&amp;#10036;" />
+														<eightpoint jcr:primaryType="nt:unstructured"
+															entity="&amp;#10035;" />
+														<sixpointTearDrop
+															jcr:primaryType="nt:unstructured" entity="&amp;#10043;" />
+														<sixpointHeavyTearDrop
+															jcr:primaryType="nt:unstructured" entity="&amp;#10045;" />
+														<eightpointPropeller
+															jcr:primaryType="nt:unstructured" entity="&amp;#10059;" />
+														<snowflakCheveron
+															jcr:primaryType="nt:unstructured" entity="&amp;#10054;" />
+														<snowflak jcr:primaryType="nt:unstructured"
+															entity="&amp;#10052;" />
+														<snowflakHeavy
+															jcr:primaryType="nt:unstructured" entity="&amp;#10053;" />
+														<happyFace jcr:primaryType="nt:unstructured"
+															entity="&amp;#9787;" />
+														<smileyFaceOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9786;" />
+														<sadFaceOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9785;" />
+														<email jcr:primaryType="nt:unstructured"
+															entity="&amp;#9993;" />
+														<phone jcr:primaryType="nt:unstructured"
+															entity="&amp;#9742;" />
+														<phoneOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9743;" />
+														<payPhone jcr:primaryType="nt:unstructured"
+															entity="&amp;#9990;" />
+														<replacementChar
+															jcr:primaryType="nt:unstructured" entity="&amp;#65533;" />
+														<cloud jcr:primaryType="nt:unstructured"
+															entity="&amp;#9729;" />
+														<umbrella jcr:primaryType="nt:unstructured"
+															entity="&amp;#9730;" />
+														<snowman jcr:primaryType="nt:unstructured"
+															entity="&amp;#9731;" />
+														<sixPointSparkle
+															jcr:primaryType="nt:unstructured" entity="&amp;#10056;" />
+														<heavyFlorette
+															jcr:primaryType="nt:unstructured" entity="&amp;#10047;" />
+														<outlinedFlorette
+															jcr:primaryType="nt:unstructured" entity="&amp;#10048;" />
+														<eightPetaledFlorette
+															jcr:primaryType="nt:unstructured" entity="&amp;#10168;" />
+														<shamrock jcr:primaryType="nt:unstructured"
+															entity="&amp;#9752;" />
+														<floralHeart jcr:primaryType="nt:unstructured"
+															entity="&amp;#10086;" />
+														<hotBeverage jcr:primaryType="nt:unstructured"
+															entity="&amp;#9749;" />
+														<ankh jcr:primaryType="nt:unstructured"
+															entity="&amp;#9765;" />
+														<peaceSymbol jcr:primaryType="nt:unstructured"
+															entity="&amp;#9774;" />
+														<yingYang jcr:primaryType="nt:unstructured"
+															entity="&amp;#9775;" />
+														<starAndCresent
+															jcr:primaryType="nt:unstructured" entity="&amp;#9770;" />
+														<doctorHealingCaduceus
+															jcr:primaryType="nt:unstructured" entity="&amp;#9764;" />
+														<sissorsOutline
+															jcr:primaryType="nt:unstructured" entity="&amp;#9988;" />
+														<sissors jcr:primaryType="nt:unstructured"
+															entity="&amp;#9986;" />
+														<dharmaWheelShip
+															jcr:primaryType="nt:unstructured" entity="&amp;#9784;" />
+														<anchor jcr:primaryType="nt:unstructured"
+															entity="&amp;#9875;" />
+														<biohazard jcr:primaryType="nt:unstructured"
+															entity="&amp;#9763;" />
+														<warningSign jcr:primaryType="nt:unstructured"
+															entity="&amp;#9888;" />
+														<highVoltage jcr:primaryType="nt:unstructured"
+															entity="&amp;#9889;" />
+														<radioactvie jcr:primaryType="nt:unstructured"
+															entity="&amp;#9762;" />
+														<recycle jcr:primaryType="nt:unstructured"
+															entity="&amp;#9851;" />
+														<handicapSymbol
+															jcr:primaryType="nt:unstructured" entity="&amp;#9855;" />
+														<skullCrossbones
+															jcr:primaryType="nt:unstructured" entity="&amp;#9760;" />
+														<pointingHandLeft
+															jcr:primaryType="nt:unstructured" entity="&amp;#9758;" />
+														<pointingUp jcr:primaryType="nt:unstructured"
+															entity="&amp;#9757;" />
+														<pointingDown
+															jcr:primaryType="nt:unstructured" entity="&amp;#9759;" />
+														<peaceSignHand
+															jcr:primaryType="nt:unstructured" entity="&amp;#9996;" />
+														<signingWriting
+															jcr:primaryType="nt:unstructured" entity="&amp;#9997;" />
+														<pencilDown jcr:primaryType="nt:unstructured"
+															entity="&amp;#9998;" />
+														<pencilUp jcr:primaryType="nt:unstructured"
+															entity="&amp;#10000;" />
+														<pencil jcr:primaryType="nt:unstructured"
+															entity="&amp;#9999;" />
+														<penSolid jcr:primaryType="nt:unstructured"
+															entity="&amp;#10001;" />
+														<penOutlined jcr:primaryType="nt:unstructured"
+															entity="&amp;#10002;" />
+														<waxingMoon jcr:primaryType="nt:unstructured"
+															entity="&amp;#9789;" />
+														<waningMoon jcr:primaryType="nt:unstructured"
+															entity="&amp;#9790;" />
+														<mars jcr:primaryType="nt:unstructured"
+															entity="&amp;#9794;" />
+														<venus jcr:primaryType="nt:unstructured"
+															entity="&amp;#9792;" />
+														<mercury jcr:primaryType="nt:unstructured"
+															entity="&amp;#9791;" />
+														<earth jcr:primaryType="nt:unstructured"
+															entity="&amp;#9793;" />
+														<jupiter jcr:primaryType="nt:unstructured"
+															entity="&amp;#9795;" />
+														<saturn jcr:primaryType="nt:unstructured"
+															entity="&amp;#9796;" />
+														<uranus jcr:primaryType="nt:unstructured"
+															entity="&amp;#9797;" />
+														<neptune jcr:primaryType="nt:unstructured"
+															entity="&amp;#9798;" />
+														<pluto jcr:primaryType="nt:unstructured"
+															entity="&amp;#9799;" />
+														<aries jcr:primaryType="nt:unstructured"
+															entity="&amp;#9800;" />
+														<taurus jcr:primaryType="nt:unstructured"
+															entity="&amp;#9801;" />
+														<gemini jcr:primaryType="nt:unstructured"
+															entity="&amp;#9802;" />
+														<cancer jcr:primaryType="nt:unstructured"
+															entity="&amp;#9803;" />
+														<leo jcr:primaryType="nt:unstructured"
+															entity="&amp;#9804;" />
+														<virgo jcr:primaryType="nt:unstructured"
+															entity="&amp;#9805;" />
+														<libra jcr:primaryType="nt:unstructured"
+															entity="&amp;#9806;" />
+														<scorpius jcr:primaryType="nt:unstructured"
+															entity="&amp;#9807;" />
+														<sagittarius jcr:primaryType="nt:unstructured"
+															entity="&amp;#9809;" />
+														<aquarius jcr:primaryType="nt:unstructured"
+															entity="&amp;#9810;" />
+														<pisces jcr:primaryType="nt:unstructured"
+															entity="&amp;#9811;" />
+														<king jcr:primaryType="nt:unstructured"
+															entity="&amp;#9818;" />
+														<queen jcr:primaryType="nt:unstructured"
+															entity="&amp;#9819;" />
+														<rook jcr:primaryType="nt:unstructured"
+															entity="&amp;#9820;" />
+														<bishop jcr:primaryType="nt:unstructured"
+															entity="&amp;#9821;" />
+														<knight jcr:primaryType="nt:unstructured"
+															entity="&amp;#9822;" />
+														<pawn jcr:primaryType="nt:unstructured"
+															entity="&amp;#9823;" />
+														<kingOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9812;" />
+														<queenOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9813;" />
+														<rookOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9814;" />
+														<bishopOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9815;" />
+														<knightOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9816;" />
+														<pawnOultined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9817;" />
+														<spades jcr:primaryType="nt:unstructured"
+															entity="&amp;spades;" />
+														<clubs jcr:primaryType="nt:unstructured"
+															entity="&amp;clubs;" />
+														<hearts jcr:primaryType="nt:unstructured"
+															entity="&amp;hearts;" />
+														<spadesOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9828;" />
+														<clubsOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9831;" />
+														<heartsOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9825;" />
+														<diamondOutlined
+															jcr:primaryType="nt:unstructured" entity="&amp;#9826;" />
+														<alpha jcr:primaryType="nt:unstructured"
+															entity="&amp;Alpha;" />
+														<beta jcr:primaryType="nt:unstructured"
+															entity="&amp;Beta;" />
+														<gamma jcr:primaryType="nt:unstructured"
+															entity="&amp;Gamma;" />
+														<delta jcr:primaryType="nt:unstructured"
+															entity="&amp;Delta;" />
+														<epsilon jcr:primaryType="nt:unstructured"
+															entity="&amp;Epsilon;" />
+														<zeta jcr:primaryType="nt:unstructured"
+															entity="&amp;Zeta;" />
+														<eta jcr:primaryType="nt:unstructured"
+															entity="&amp;Eta;" />
+														<theta jcr:primaryType="nt:unstructured"
+															entity="&amp;Theta;" />
+														<iota jcr:primaryType="nt:unstructured"
+															entity="&amp;Iota;" />
+														<kappa jcr:primaryType="nt:unstructured"
+															entity="&amp;Kappa;" />
+														<lambda jcr:primaryType="nt:unstructured"
+															entity="&amp;Lambda;" />
+														<mu jcr:primaryType="nt:unstructured" entity="&amp;Mu;" />
+														<xi jcr:primaryType="nt:unstructured" entity="&amp;Xi;" />
+														<omicron jcr:primaryType="nt:unstructured"
+															entity="&amp;Omicron;" />
+														<phi jcr:primaryType="nt:unstructured"
+															entity="&amp;Phi;" />
+														<eho jcr:primaryType="nt:unstructured"
+															entity="&amp;Rho;" />
+														<sigma jcr:primaryType="nt:unstructured"
+															entity="&amp;Sigma;" />
+														<tau jcr:primaryType="nt:unstructured"
+															entity="&amp;Tau;" />
+														<upsilon jcr:primaryType="nt:unstructured"
+															entity="&amp;Upsilon;" />
+														<chi jcr:primaryType="nt:unstructured"
+															entity="&amp;Chi;" />
+														<psi jcr:primaryType="nt:unstructured"
+															entity="&amp;Psi;" />
+														<omega jcr:primaryType="nt:unstructured"
+															entity="&amp;Omega;" />
+													</chars>
+												</specialCharsConfig>
+											</misctools>
+											<styles jcr:primaryType="nt:unstructured" features="*">
+												<styles jcr:primaryType="cq:WidgetCollection">
+													<arialRounded
+														jcr:primaryType="nt:unstructured" cssName="arialRounded"
+														text="ArialRounded" />
+													<swissBoldRounded
+														jcr:primaryType="nt:unstructured"
+														cssName="swissBoldRounded" text="SwissBoldRounded" />
+													<swissBlackRounded
+														jcr:primaryType="nt:unstructured"
+														cssName="swissBlackRounded" text="SwissBlackRounded" />
+												</styles>
+											</styles>
+											<experience-aem
+												jcr:primaryType="nt:unstructured" features="*" />
+											<ecm-font-weight
+												jcr:primaryType="nt:unstructured" features="*" />
+										</rtePlugins>
+										<uiSettings jcr:primaryType="nt:unstructured">
+											<cui jcr:primaryType="nt:unstructured">
+												<inline jcr:primaryType="nt:unstructured"
+													toolbar="[format#bold,format#italic,format#underline,#paraformat,image#imageProps,#justify,#lists,misctools#specialchars,#styles,experience-aem#colorPicker,links#unlink,links#modifylink,ecm-font-weight#fontWeightPicker]">
+													<popovers jcr:primaryType="nt:unstructured">
+														<justify jcr:primaryType="nt:unstructured"
+															items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+															ref="justify" />
+														<styles jcr:primaryType="nt:unstructured"
+															items="styles:getStyles:styles-pulldown" ref="styles" />
+													</popovers>
+												</inline>
+												<dialogFullScreen
+													jcr:primaryType="nt:unstructured"
+													toolbar="[format#bold,format#italic,format#underline,#paraformat,image#imageProps,#justify,#lists,misctools#specialchars,#styles,experience-aem#colorPicker,links#unlink,links#modifylink,ecm-font-weight#fontWeightPicker]">
+													<popovers jcr:primaryType="nt:unstructured">
+														<justify jcr:primaryType="nt:unstructured"
+															items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+															ref="justify" />
+														<styles jcr:primaryType="nt:unstructured"
+															items="styles:getStyles:styles-pulldown" ref="styles" />
+													</popovers>
+												</dialogFullScreen>
+											</cui>
+										</uiSettings>
+									</leagalText>
+								</items>
+							</column>
+						</items>
+					</footerLinks>
+					<esrbLogo jcr:primaryType="nt:unstructured"
+						jcr:title="ESRB Logo"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<column jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<esrbLogoImg jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+										allowUpload="{Boolean}false" autoStart="{Boolean}false"
+										class="cq-droptarget" fieldLabel="Upload ESRB Logo Image:"
+										fileReferenceParameter="./fileReference1"
+										mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+										multiple="{Boolean}false" name="./esrbLogoImg"
+										uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+									<esrbLogoURL jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										fieldLabel="Logo URL:" name="./esrbLogoURL" />
+									<esrbAltText jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldLabel="ImageAlternative Text" name="./esrbAltText" />
+									<esrbTargetUrl jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldLabel="Open URL In" name="./esrbTargetUrl">
+										<items jcr:primaryType="nt:unstructured">
+											<sameWindow jcr:primaryType="nt:unstructured"
+												text="Same Window" value="sameWindow" />
+											<newTab jcr:primaryType="nt:unstructured"
+												text="New Tab" value="tabWindow" />
+											<newWindow granite:hide="${cqDesign.disableSearch}"
+												jcr:primaryType="nt:unstructured" text="New Window"
+												value="newWindow" />
+											<interstitial jcr:primaryType="nt:unstructured"
+												text="Interstitial - Leaving the Site" value="interstitial" />
+										</items>
+									</esrbTargetUrl>
+									<alwaysEnglish jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldDescription="Analytics Tracking Name for ESRBLogo Image Alternative Text in English"
+										fieldLabel="Adobe Tracking Name"
+										name="./alwaysEnglishForEsrbLogo" />
+								</items>
+							</column>
+						</items>
+					</esrbLogo>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

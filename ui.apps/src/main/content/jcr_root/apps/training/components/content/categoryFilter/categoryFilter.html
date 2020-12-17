@@ -1,0 +1,56 @@
+<sly data-sly-test="${wcmmode.edit}">${'Configure Category Filter
+Component' @ i18n}</sly>
+<sly data-sly-test="${properties.displayCategories}"
+	data-sly-use.myNav="${'com.training.core.models.CategoryFilterModel'  @ url=currentPage.Path}">
+<div data-sly-test="${myNav.displayCategory}"
+	class="cda-banner enable-carousel-nav"
+	data-slide-show="${myNav.slideCount != null ? myNav.slideCount : 10}"
+	data-slide-scroll="1" data-dots="false" data-autoplay="false"
+	data-arrows="true">
+	<div class="crm-container">
+		<a href="javascript:void(0)" class="category-drpdown-display">All
+			<span></span>
+		</a>
+		<sly
+			data-sly-test="${properties.backgroundColour != null && properties.fileReferenceBgImg == null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			id="category-filter-carousel"
+			style="background-color: ${properties.backgroundColour@ context='styleString'}">
+		</sly>
+		<sly data-sly-test="${properties.fileReferenceBgImg != null}">
+		<ul class="nav-carousel-slides nav-categorylist"
+			id="category-filter-carousel"
+			style="background: transparent url('${properties.fileReferenceBgImg @ context=' styleString '}') no-repeat 0 0;">
+		</sly>
+		<sly
+			data-sly-test="${properties.fileReferenceBgImg == null && properties.backgroundColour == null}">
+		<ul class="nav-carousel-slides nav-categorylist"
+			id="category-filter-carousel">
+		</sly>
+		<li data-sly-test="${properties.allLabel}"><sly
+				data-sly-test.myVar="${myNav.homePagePath}"
+				data-sly-use.info="${'com.training.core.helper.PlayHelper' @ text= myVar}">
+			<a href="${info.pathURL}"
+				class="${currentPage.path == myNav.homePagePath  ? 'active' : ''}"
+				target="_self"
+				data-tracking-id="Category Filter Section|${properties.alwaysEnglish}|${properties.allAnalyticsName}|${myNav.categoryFor} Category">${properties.allLabel
+				@i18n}</a> </sly></li>
+		<sly data-sly-list.head="${myNav.categoryList}">
+		<li><sly data-sly-test.myVar="${head.catUrl}"
+				data-sly-use.info="${'com.training.core.helper.PlayHelper' @ text= myVar}">
+			<a href="${info.pathURL}"
+				class="${currentPage.path == head.catUrl  ? 'active' : ''}"
+				target="_self"
+				data-tracking-id="Category Filter Section|${properties.alwaysEnglish}|${head.analyticsCategoryName @ i18n}|${myNav.categoryFor} Category">${head.catName
+				@ i18n}</a> </sly></li>
+		</sly>
+		<input type="hidden" class="prev-tracking-id"
+			value="Navigating Arrows|Left|Category Filter"> <input
+			type="hidden" class="next-tracking-id"
+			value="Navigating Arrows|Right|Category Filter">
+		</ul>
+	</div>
+</div>
+</sly>
+<sly
+	data-sly-use.clientlibFilterSlider="/libs/granite/sightly/templates/clientlib.html">

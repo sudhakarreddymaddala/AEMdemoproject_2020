@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Article"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        granite:class="play-cmp-list--editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <artilce
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Article Detail"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <articleTitle
+                                cq:showOnCreate="{Boolean}true"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Article Title"
+                                name="./articleTitle"/>
+                            <articleDescription
+                                cq:showOnCreate="{Boolean}true"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter Article Description"
+                                fieldLabel="Short Description"
+                                name="./articleshortDesc"/>
+                            <socialMediaEnabled
+                                cq:showOnCreate="{Boolean}true"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./socialMediaEnabled"
+                                text="socialMediaEnabled?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <datepickerarticle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                displayedFormat="MM-DD-YYYY HH:mm"
+                                fieldLabel="Article Display Date"
+                                name="./datepickerarticle"
+                                required="{Boolean}true"
+                                type="datetime"
+    							typeHint="Date"/>
+                            <thumbnailImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldLabel="Thumbnail Image"
+                                fileReferenceParameter="./articleThumbnailpath"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./articleThumbnailImage"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <backgroundImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldLabel="Background Image"
+                                fileReferenceParameter="./articleBgImagePath"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./articleBgImage"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <backgroundImageAlt 
+                            	jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldLabel="Alternative Text for Background Image"
+								name="./bgImageAlt" wrapperClass="cmp-image--editor-alt"
+								required="{Boolean}true" />
+                            <primaryTags
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                fieldDescription="Please Tag the Article Page with a Primary Tag Max Count : 1"
+                                fieldLabel="Primary Tags"
+                                multiple="{Boolean}true"
+                                name="./primaryTags"
+                                required="{Boolean}true"
+                                validation="article.tag.max.count.validation.primary"/>
+                            <alwaysEnglish
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Always English check for Multi-Lingual  Site Tagging"
+                                fieldLabel="Adobe Tracking Name"
+                                name="./alwaysEnglish"
+                                required="{Boolean}true"/>
+                        </items>
+                    </artilce>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

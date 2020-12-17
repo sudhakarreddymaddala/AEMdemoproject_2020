@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	jcr:primaryType="sling:OsgiConfig"
+	languageMapping="[en:en-us,es:es-es,tr:tr-tr,fr:fr-fr,de:de-de,el:el-gr,pt:pt-br,it:it-it,nl:nl-nl,lam:es-lam,ru:ru-ru,pl:pl-pl]"/>

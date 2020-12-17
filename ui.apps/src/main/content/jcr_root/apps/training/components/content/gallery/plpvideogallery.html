@@ -1,0 +1,243 @@
+<sly data-sly-test="${wcmmode.edit}"> ${'Configure PLP Gallery -
+Videos' @ i18n} </sly>
+<sly data-sly-test="${properties.backOption}"> <sly
+	data-sly-test="${properties.backOption == 'color'}"> <sly
+	data-sly-test="${properties.backgroundColor != null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly> <sly data-sly-test="${properties.backgroundColor == null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}">
+</sly> </sly> <sly data-sly-test="${properties.backOption == 'image'}"> <sly
+	data-sly-test="${properties.fileReferenceBgImg != null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+</sly> <sly data-sly-test="${properties.fileReferenceBgImg == null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}">
+</sly> </sly> </sly>
+<sly data-sly-test="${properties.backOption == null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}">
+</sly>
+<div class="video-component video-rightscroll"
+	id="video-gallery-player-component">
+	<sly data-sly-test="${properties.plpGalleryTitleBackOption}"> <sly
+		data-sly-test="${properties.plpGalleryTitleBackOption == 'color'}">
+	<sly
+		data-sly-test="${properties.plpGalleryTitleBackgroundColor != null}">
+	<div class="video-page-title"
+		style="background-color: ${properties.plpGalleryTitleBackgroundColor@ context='styleString'}">
+	</sly> <sly
+		data-sly-test="${properties.plpGalleryTitleBackgroundColor == null}">
+	<div class="video-page-title">
+	</sly> </sly> <sly
+		data-sly-test="${properties.plpGalleryTitleBackOption == 'image'}">
+	<sly
+		data-sly-test="${properties.plpGalleryTitleFileReferenceBgImg != null}">
+	<div class="video-page-title"
+		style="background-image: url('${properties.plpGalleryTitleFileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+	</sly> <sly
+		data-sly-test="${properties.plpGalleryTitleFileReferenceBgImg == null}">
+	<div class="video-page-title">
+	</sly> </sly> </sly>
+
+	<sly data-sly-test="${properties.plpGalleryTitleBackOption==null}">
+	<div class="video-page-title">
+	</sly>
+
+	<h2 data-sly-test="${properties.plpGalleryTitle}">${properties.plpGalleryTitle
+		@ i18n}</h2>
+	<p data-sly-test="${properties.plpGalleryDescription}">${properties.plpGalleryDescription
+		@context='html',i18n}</p>
+
+</div>
+<sly data-sly-test="${properties.plpPlayerAvail}">
+
+<div
+	data-sly-use.allVideos="com.training.core.models.PLPVideoGalleryModel"
+	class="video-player-container">
+	<div class="video-player-in">
+		<sly data-sly-test="${properties.plpGalleryFrom == 'by date'}">
+		<a data-sly-test="${allVideos.videoByDateList.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<sly data-sly-test="${properties.plpGalleryFrom == 'category'}">
+		<a data-sly-test="${allVideos.videoByCategoryList.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<sly data-sly-test="${properties.plpGalleryFrom == 'manual'}"> <a
+			data-sly-test="${allVideos.videoManualList.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<div class="video-banner video-player-wrapper">
+			<sly data-sly-test="${properties.plpDisableAutoplay == null}">
+			<div id="main-player-container" class="featured-promo video-player"
+				data-autoplay="true"></div>
+			</sly>
+			<sly data-sly-test="${properties.plpDisableAutoplay != null}">
+			<div id="main-player-container" class="featured-promo video-player"
+				data-autoplay="${properties.plpDisableAutoplay}"></div>
+			</sly>
+
+		</div>
+		<div class="video-player-label col-md-12">
+			<h2 id="video-player-title">${'Video' @i18n}</h2>
+			<p id="video-player-desc">${'Description Goes Here' @i18n}</p>
+		</div>
+		<sly data-sly-test="${properties.plpGalleryFrom == 'by date'}">
+		<a data-sly-test="${allVideos.videoByDateList.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+		<sly data-sly-test="${properties.plpGalleryFrom == 'category'}">
+		<a data-sly-test="${allVideos.videoByCategoryList.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+		<sly data-sly-test="${properties.plpGalleryFrom == 'manual'}"> <a
+			data-sly-test="${allVideos.videoManualList.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+	</div>
+
+</div>
+
+</sly>
+
+<div id="videos-gallery" class="videos-gallery-playlist">
+	<sly data-sly-use.scriptUrl="com.training.core.models.PlayPageModel">
+	<div class="training-tiles-gallery default">
+		<div class="gallery-tile"
+			data-player-available="${properties.plpPlayerAvail}">
+			<input type="hidden" value="${properties.plpGalleryAnalticsText}"
+				id="filter-alway-english" />
+			<sly data-sly-test="${properties.plpGalleryFrom == 'by date'}">
+			<sly
+				data-sly-use.allVideos="com.training.core.models.PLPVideoGalleryModel">
+			<sly data-sly-test.checkLength="${allVideos.videoByDateList.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoByDateList}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+							<div class="playing-overlay">
+								<span class="training-icon"><em class="fas fa-play"></em></span>
+								<span class="training-text"
+									data-sly-test="${properties.plpNowPlayingText}">${properties.plpNowPlayingText
+									@i18n}</span>
+							</div>
+						</div>
+						<div class="video-title-section">
+							<sly> <span class="tile-content center">${video.videoTitle
+								@i18n}</span> </sly>
+							<span class="tile-desc hidden">${video.videoDesc
+								@context='html',i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+
+			<sly data-sly-test="${properties.plpGalleryFrom == 'category'}">
+			<sly
+				data-sly-use.allVideos="com.training.core.models.PLPVideoGalleryModel">
+			<sly
+				data-sly-test.checkLength="${allVideos.videoByCategoryList.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoByCategoryList}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+							<div class="playing-overlay">
+								<span class="training-icon"><em class="fas fa-play"></em></span>
+								<span class="training-text"
+									data-sly-test="${properties.plpNowPlayingText}">${properties.plpNowPlayingText
+									@i18n}</span>
+							</div>
+						</div>
+						<div class="video-title-section">
+							<sly> <span class="tile-content center">${video.videoTitle
+								@i18n}</span> </sly>
+							<span class="tile-desc hidden">${video.videoDesc
+								@context='html',i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+
+			<sly data-sly-test="${properties.plpGalleryFrom == 'manual'}">
+			<sly
+				data-sly-use.allVideos="com.training.core.models.PLPVideoGalleryModel">
+			<sly data-sly-test.checkLength="${allVideos.videoManualList.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoManualList}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+							<div class="playing-overlay">
+								<span class="training-icon"><em class="fas fa-play"></em></span>
+								<span class="training-text"
+									data-sly-test="${properties.plpNowPlayingText}">${properties.plpNowPlayingText}</span>
+							</div>
+						</div>
+						<div class="video-title-section">
+							<sly> <span class="tile-content center">${video.videoTitle
+								@i18n}</span> </sly>
+							<span class="tile-desc hidden">${video.videoDesc
+								@context='html',i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+		</div>
+		<div class="show-more ${checkLength?'hidden':''}">
+			<a href="javascript:void(0);" class="accordion"
+				data-component-id="video gallery section|${properties.plpGalleryAnalticsText}"
+				data-text-collapse="${properties.showMoreText}"
+				data-text-expand="${properties.showLessText}" aria-expanded="false">
+				${properties.showMoreText @i18n} </a>
+		</div>
+	</div>
+	</sly>
+</div>
+</div>
+</div>
+<sly
+	data-sly-use.clientlibVideogallery="/libs/granite/sightly/templates/clientlib.html">
+<sly
+	data-sly-call="${clientlibVideogallery.js @ categories='training.videogallery'}" />
+</sly>

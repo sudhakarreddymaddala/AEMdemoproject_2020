@@ -1,0 +1,32 @@
+<sly data-sly-test="${wcmmode.edit}">${' Configure Game Player
+Module' @ i18n}</sly>
+<sly data-sly-use.TrainingPage="com.training.core.models.TrainingPageModel">
+<sly>
+<div class="game-player-area-component">
+	<sly data-sly-test="${properties.backOption == 'color'}">
+	<div class="game-player-area-content"
+		style="background: ${properties.backgroundColorModel@ context='styleString'}">
+	</sly>
+	<sly data-sly-test="${properties.backOption == 'image'}">
+	<div class="game-player-area-content"
+		style="background-image: url('${properties.fileReferenceBgImgmodel @ context=' styleString '}');">
+	</sly>
+	<sly data-sly-test="${properties.backOption==null}">
+	<div class="game-player-area-content">
+	</sly>
+	<div class="game-player-area-container" tabindex="0"
+		data-width="${properties.containerWidth}"
+		data-height="${properties.containerHeight}">
+		<!-- data-mwidth="325" data-mheight="238"-->
+		<iframe tabindex="0" class="game_frame" scrolling="no"
+			src="${properties.iframeUrl}" title="gameframe"> </iframe>
+	</div>
+</div>
+<div class="title-block">
+	<h2 aria-level="1" role="heading">${properties.tileTitle @ i18n }</h2>
+	<sly data-sly-test="${properties.gameDescription}">
+	<p>${properties.gameDescription @ context='html',i18n}</p>
+	</sly>
+</div>
+</div>
+</sly> </sly>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Character Detail"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    height="{Long}500"
+    width="{Long}700">
+    <content
+        granite:class="play-cmp-list--editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <cauroselConfig
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Carousel Config"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <carousalbackgroundcolor
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/colorfield"
+                                fieldLabel="Carousal Background Color"
+                                name="./carBgColor"/>
+                            <carousalbackgroundpattern
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                fieldLabel="Carousal Background Pattern"
+                                fileReferenceParameter="./carBgPattern"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./carBgPattern1"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <carousalbackroundoption
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Background Option"
+                                name="./carouBackOption">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Image"
+                                        value="image"/>
+                                    <color
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Color"
+                                        value="color"/>
+                                </items>
+                            </carousalbackroundoption>
+                        </items>
+                    </cauroselConfig>
+                    <primarydetails
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Character Details-Primary"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <alwaysEnglish
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Always English check for Multi-Lingual  Site Tagging"
+                                fieldLabel="Adobe Tracking Name"
+                                name="./alwaysEnglish"
+                                required="{Boolean}true"/>
+                            <charactertitle
+                                cq:xfVariantType="web"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Title"
+                                fieldLabel="Character Title"
+                                name="./tileTitle"
+                                required="{Boolean}true"
+                                useFixedInlineToolbar="{Boolean}true"/>
+                            <charactersubtitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="Please Enter Value"
+                                fieldLabel="Character Subtitle"
+                                name="./charSubtitle"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="mattel/play/components/content/playRtePlugins/htmlRules"/>
+                                <rtePlugins
+                                     jcr:primaryType="nt:unstructured"
+                                     sling:resourceSuperType="mattel/play/components/content/playRtePlugins/rtePlugins"/>
+                                 <uiSettings
+                                     jcr:primaryType="nt:unstructured"
+                                     sling:resourceSuperType="mattel/play/components/content/playRtePlugins/uiSettings"/>
+                            </charactersubtitle>
+                            <primarydescription
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="This text will be displayed when show more is clicked"
+                                fieldLabel="Character Description"
+                                name="./charDesc"
+                                required="{Boolean}true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="mattel/play/components/content/playRtePlugins/htmlRules"/>
+                                <rtePlugins
+                                     jcr:primaryType="nt:unstructured"
+                                     sling:resourceSuperType="mattel/play/components/content/playRtePlugins/rtePlugins"/>
+                                 <uiSettings
+                                     jcr:primaryType="nt:unstructured"
+                                     sling:resourceSuperType="mattel/play/components/content/playRtePlugins/uiSettings"/>
+                              </primarydescription>
+                            <characterimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                fieldLabel="Character Image"
+                                fileReferenceParameter="./charImageRef"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./charImage1"
+                                required="{Boolean}true"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Alternative Text"
+                                fieldLabel="Alternative Text for Character Tile Image"
+                                name="./charAltText"
+                                required="{Boolean}true"/>
+                            <characterthumbnail
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                fieldLabel="Thumbnail Image"
+                                fileReferenceParameter="./tileThumbnail"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./charThumbImage"
+                                required="{Boolean}true"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <thumbnailalttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Thumbnail Alternative Text"
+                                fieldLabel="Character Thumbnail Alternative Text"
+                                name="./tileAltTxt"
+                                required="{Boolean}true"/>
+                        </items>
+                    </primarydetails>
+                    <secondarydetails
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Character Details-Secondary"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <secondaryimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                fieldLabel="Secondary Image"
+                                fileReferenceParameter="./charSecondayImage"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./charSecondayImage1"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Alt text for image"
+                                fieldLabel="Alt Text for Secondary Image"
+                                name="./charSecondayImageAltText"
+                                required="{Boolean}false"/>
+                            <secondaryHeading
+                                cq:xfVariantType="web"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Title"
+                                fieldLabel="Sub Heading"
+                                name="./subHeading"
+                                required="{Boolean}false"
+                                useFixedInlineToolbar="{Boolean}true"/>
+                            <secondarydescription
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="This text will be displayed when show more is clicked"
+                                fieldLabel="Secondary Information"
+                                name="./charExtraDesc"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="mattel/play/components/content/playRtePlugins/htmlRules"/>
+                                <rtePlugins
+                                     jcr:primaryType="nt:unstructured"
+                                     sling:resourceSuperType="mattel/play/components/content/playRtePlugins/rtePlugins"/>
+                                 <uiSettings
+                                     jcr:primaryType="nt:unstructured"
+                                     sling:resourceSuperType="mattel/play/components/content/playRtePlugins/uiSettings"/>
+                              </secondarydescription>
+                        </items>
+                    </secondarydetails>
+                    <characterDetailConfig
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Character Detail Configuration"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <characterBackgroundColor
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/colorfield"
+                                fieldLabel="Character Detail Background Color"
+                                name="./chBgColor"/>
+                            <characterBackgroundImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                fieldLabel="Character Detail Background Image"
+                                fileReferenceParameter="./chBgImg"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./charBgImg"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <characterBackroundOption
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Character Detail Background Option"
+                                name="./charBackOption"
+                                value="image">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <color
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Color"
+                                        value="color"/>
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Image"
+                                        value="image"/>
+                                </items>
+                            </characterBackroundOption>
+                            <alignPrimaryImage
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Align Character Detail Primary Image"
+                                name="./alignPrimaryImage"
+                                value="image">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left"
+                                        value="left"/>
+                                    <right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Right"
+                                        value="right"/>
+                                </items>
+                            </alignPrimaryImage>
+                            <alignSecondaryImage
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Align Character Detail Secondary Image"
+                                name="./alignSecondaryImage"
+                                value="image">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left"
+                                        value="left"/>
+                                    <right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Right"
+                                        value="right"/>
+                                </items>
+                            </alignSecondaryImage>
+                        </items>
+                    </characterDetailConfig>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

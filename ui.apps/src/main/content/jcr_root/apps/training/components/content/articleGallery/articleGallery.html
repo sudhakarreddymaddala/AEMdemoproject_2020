@@ -1,0 +1,81 @@
+<sly data-sly-test="${wcmmode.edit}">${'Configure Article Gallery'
+@i18n}</sly>
+<sly
+	data-sly-use.articleBanner="com.training.core.models.ArticleGalleryModel">
+<div class="play-tiles-gallery articles no-cta"
+	data-height-sync=".gallery-image">
+	<div class="gallery-tile">
+		<sly data-sly-test="${properties.galleryFrom == 'manual'}">
+		<ul>
+			<sly
+				data-sly-list.manualList="${articleBanner.manualAuthorArticleList}">
+			<li class="${properties.columnLayout}"><a
+				href="${manualList.articlePath}"
+				data-tracking-id="article gallery section|${manualList.pageTitile}|article gallery|${manualList.articleTagName}">
+					<div class="gallery-image" data-height-sync=".gallery-image">
+						<img src="${manualList.articleThumnnail}"
+							alt="${manualList.pageTitile @i18n}" />
+					</div>
+					<div class="gallery-desc tile-content">
+						<span class="category ${manualList.articleTagNameLowercase}">${manualList.articleTagName
+							@i18n}</span> <span class="category title">
+							${manualList.pageTitile @i18n}</span> <span class="category desc">${manualList.pageDescription
+							@i18n}</span> <span class="readmore">${properties.ctaButtonText
+							@i18n}<span class="sr-only">${manualList.pageTitile @i18n}</span>
+						</span>
+					</div>
+			</a></li>
+		</ul>
+		</sly>
+</sly>
+
+<sly data-sly-test="${properties.galleryFrom == 'category'}">
+<ul>
+	<sly data-sly-list.categoryList="${articleBanner.categoryArticleList}">
+	<li class="${properties.columnLayout}"><a
+		href="${categoryList.articlePath}"
+		data-tracking-id="article gallery section|${categoryList.pageTitile}|article gallery|${categoryList.articleTagName}">
+			<div class="gallery-image" data-height-sync=".gallery-image">
+				<img src="${categoryList.articleThumnnail}"
+					alt="${categoryList.pageTitile}" />
+			</div>
+			<div class="gallery-desc tile-content">
+				<span class="category ${categoryList.articleTagNameLowercase}">${categoryList.articleTagName
+					@i18n}</span> <span class="category title">
+					${categoryList.pageTitile @i18n}</span> <span class="category desc">${categoryList.pageDescription
+					@i18n}</span> <span class="readmore">${properties.ctaButtonText
+					@i18n}<span class="sr-only">${categoryList.pageTitile @i18n}</span>
+				</span>
+			</div>
+	</a></li>
+	</sly>
+</ul>
+</sly>
+
+<sly data-sly-test="${properties.galleryFrom == 'by date'}">
+<ul>
+	<sly
+		data-sly-list.byDateArticlesList="${articleBanner.byDateArticleList}">
+	<li class="${properties.columnLayout}"><a
+		href="${byDateArticlesList.articlePath}"
+		data-tracking-id="article gallery section|${byDateArticlesList.pageTitile}|article gallery|${byDateArticlesList.articleTagName}">
+			<div class="gallery-image" data-height-sync=".gallery-image">
+				<img src="${byDateArticlesList.articleThumnnail}"
+					alt="${byDateArticlesList.pageTitile @i18n}" />
+			</div>
+			<div class="gallery-desc tile-content">
+				<span class="category ${byDateArticlesList.articleTagNameLowercase}">${byDateArticlesList.articleTagName
+					@i18n}</span> <span class="category title">
+					${byDateArticlesList.pageTitile @i18n}</span> <span class="category desc">${byDateArticlesList.pageDescription
+					@i18n}</span> <span class="readmore">${properties.ctaButtonText
+					@i18n}<span class="sr-only">${byDateArticlesList.pageTitile
+						@i18n}</span>
+				</span>
+			</div>
+	</a></li>
+	</sly>
+</ul>
+</sly>
+</div>
+</div>
+</sly>

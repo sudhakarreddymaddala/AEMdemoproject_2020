@@ -1,0 +1,5 @@
+#base=js
+initialize.min.js
+cookie.min.js
+crypto-algorithm.min.js
+email-form.min.js

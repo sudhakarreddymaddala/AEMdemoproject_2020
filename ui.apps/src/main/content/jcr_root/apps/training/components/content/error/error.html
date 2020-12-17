@@ -1,0 +1,54 @@
+
+<div class="page-error-component">
+
+	<sly
+		data-sly-test="${(properties.BgImage == null && properties.BgColor == null )|| (properties.BackOption =='image' && properties.BgImage == null ) || (properties.BackOption =='color' && properties.BgColor == null )}">
+	<div class="text-block pull-right">
+	</sly>
+	<sly
+		data-sly-test="${properties.BackOption =='image' && properties.BgImage != null }">
+	<div class="text-block pull-right"
+		style="background: transparent url('${properties.BgImage @ context=' styleString '}') 0 0;">
+	</sly>
+	<sly
+		data-sly-test="${properties.BackOption =='color' && properties.BgColor != null }">
+	<div class="text-block pull-right"
+		style="background-color: ${properties.BgColor@ context='styleString'}">
+	</sly>
+
+	<h2>${properties.title @i18n}</h2>
+	<p>${properties.description @ context='html',i18n}</p>
+
+	<div class="error-cta ${properties.alignment}">
+		<sly data-sly-test.myVar="${properties.ctaLink}"
+			data-sly-use.info="${'com.training.core.helper.PlayHelper' @ text= myVar}">
+
+		<sly
+			data-sly-test="${properties.clrTargetUrl =='sameWindow' && properties.ctaLabel != null }">
+		<a href="${info.pathURL}" class="btn-cta">${properties.ctaLabel
+			@i18n}</a> </sly> <sly
+			data-sly-test="${properties.clrTargetUrl =='tabWindow' && properties.ctaLabel != null}">
+		<a href="${info.pathURL}" class="btn-cta" target="_blank">${properties.ctaLabel
+			@i18n}<span class="sr-only"> ${'Opens in a new tab' @ i18n}</span>
+		</a> </sly> <sly
+			data-sly-test="${properties.clrTargetUrl =='newWindow' && properties.ctaLabel != null}">
+		<a data-url="${info.pathURL}" class="btn-cta"
+			onclick="window.open(this.dataset.url,'PLAY','width=500, height=500');">${properties.ctaLabel
+			@i18n}<span class="sr-only"> ${'Opens in new window' @ i18n}</span>
+		</a> </sly> </sly>
+
+	</div>
+</div>
+
+<div class="image-block pull-left">
+	<img class="hidden-xs hidden-sm hidden-md"
+		src="${properties.desktopImage}"
+		alt="${properties.desktopImageAltText}"> <img class="hidden-lg"
+		src="${properties.mobileImage||properties.desktopImage}"
+		alt="${properties.mobileImageAltText}">
+</div>
+
+</div>
+
+
+

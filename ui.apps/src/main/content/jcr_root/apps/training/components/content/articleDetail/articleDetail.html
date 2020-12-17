@@ -1,0 +1,40 @@
+<sly data-sly-test="${wcmmode.edit}">${'Article Detail Component'
+@i18n}</sly>
+<sly
+	data-sly-use.articleBanner="com.training.core.models.ArticleDetailModel">
+
+
+<!-- article starts -->
+<div class="grid-article-module">
+	<div class="container-fluid full-width-container"
+		style="left: -39.5px; width: 100vw;">
+		<img src="${properties.articleBgImagePath}" id="article-hero-img"
+			class="article-banner-img" alt="${properties.bgImageAlt}">
+
+	</div>
+
+	<div class="article-container overlapped-content container">
+		<div class="article-content">
+			<div class="article-heading">
+				<h1 class="tile-name">${properties.articleTitle @i18n}</h1>
+				<p class="tile-desc">${properties.articleshortDesc @i18n}</p>
+				<sly
+					data-sly-list.primarytagTitle="${articleBanner.primaryTagTitle}">
+				<input type="hidden" value="${articleBanner.primaryTagTitle}"
+					id="articleCategoryForAnalytics"> <span
+					class="tile-category">${primarytagTitle @i18n}</span> <sly
+					data-sly-test="${properties.socialMediaEnabled == 'true'}"> <sly
+					data-sly-use.templ="/apps/training/components/content/socialSharetemplate/socialSharetemplate.html"
+					data-sly-call="${templ.socialShare @ title=properties.articleTitle, description=properties.articleshortDesc, mediaUrl=properties.articleBgImagePath,pageUrl=request.requestURL.toString, componentname='Article' }"></sly>
+				</sly>
+			</div>
+
+			<div class="article-content-wrapper">
+				<sly
+					data-sly-resource="${'articleContainer' @ resourceType='wcm/foundation/components/responsivegrid'}"></sly>
+			</div>
+		</div>
+	</div>
+</div>
+</sly>
+<!-- article ends -->

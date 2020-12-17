@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Character Landing Grid"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem_cmp_text_v2">
+    <content
+        granite:class="play-cmp-list--editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <landingGridBackgroundConfig
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Background Configuration"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <backgroundColour
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                fieldLabel="Background Color"
+                                name="./backgroundColor"/>
+                            <backgroundImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldLabel="Upload Background Image:"
+                                fileReferenceParameter="./fileReferenceBgImg"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+                                multiple="{Boolean}false"
+                                name="./backgroundImage"
+                                rootPath="/content/dam"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <backgroundoption
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Background Option"
+                                name="./backOption">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Image"
+                                        value="image"/>
+                                    <color
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Color"
+                                        value="color"/>
+                                </items>
+                            </backgroundoption>
+                        </items>
+                    </landingGridBackgroundConfig>
+                    <landingGridConfig
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Character Landing Grid Configuration"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <characterLandingPath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldLabel="Landing Page Path"
+                                name="./characterLandingPath"
+                                rootPath="/content/training"/>
+                            <orderCharactersOption
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Order Characters"
+                                name="./orderCharacter">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <manual
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="{Boolean}true"
+                                        text="Manual Order"
+                                        value="manual"/>
+                                    <automatic
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Automatic Order"
+                                        value="automatic"/>
+                                </items>
+                            </orderCharactersOption>
+                            <displayCharacters
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/numberfield"
+                                fieldLabel="Number of Characters to display"
+                                name="./displayCharacters"/>
+                            <columnLayout
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Character Column Layout"
+                                name="./columnLayout">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <threeColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="{Boolean}true"
+                                        text="Three Column Layout"
+                                        value="column-3"/>
+                                    <fourColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Four Column Layout"
+                                        value="column-4"/>
+                                </items>
+                            </columnLayout>
+                            <linktoCharacters
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                checked="${not empty cqDesign.charactersToLink? cqDesign.charactersToLink: true}"
+                                fieldDescription="Link Character Tiles to Character Pages"
+                                name="./charactersToLink"
+                                text="Link Character Tiles to Character Pages"
+                                uncheckedValue="{Boolean}false"
+                                value="{Boolean}true"/>
+                        </items>
+                    </landingGridConfig>
+                    <linkToNavigation
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Link To Navigation"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <linkToNavigation
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                fieldDescription="Is this section to be linked to Navigation"
+                                name="./linkNavigationCheck"
+                                text="Link To Navigation?"
+                                uncheckedValue="{Boolean}false"
+                                value="{Boolean}true"/>
+                            <NavigationOptions
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Navigation Mapping"
+                                name="./linkNavOption">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/bin/homepagedropdown"/>
+                            </NavigationOptions>
+                        </items>
+                    </linkToNavigation>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

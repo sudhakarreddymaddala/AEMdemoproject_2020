@@ -1,0 +1,99 @@
+<sly data-sly-test="${wcmmode.edit}">${'Character Details Module' @ i18n}</sly>
+<sly
+	data-sly-use.characterModel="com.training.core.models.CharacterDetailsModel">
+<input type="hidden" id="selectedCharacter"
+	value="${characterModel.selecterCharacter}" />
+<div class="play-category-details-component">
+	<div class="cda-banner enable-carousel-nav"
+		data-slide-show="${characterModel.slideCount}"
+		data-slide-scroll="${characterModel.slideCount}" data-dots="false"
+		data-autoplay="false" data-arrows="true">
+		<div class="crm-container">
+			<sly
+				data-sly-test="${(properties.carBgPattern == null && properties.carBgColor == null )||(properties.carouBackOption=='image'&& properties.carBgPattern ==null)||(properties.carouBackOption=='color'&& properties.carBgColor ==null)}">
+			<ul class="nav-carousel-slides char-tiles">
+			</sly>
+			<sly
+				data-sly-test="${properties.carouBackOption=='color' && properties.carBgColor !=null}">
+			<ul class="nav-carousel-slides char-tiles"
+				style="background: ${properties.carBgColor@ context='styleString'}">
+			</sly>
+			<sly
+				data-sly-test="${properties.carouBackOption=='image'&& properties.carBgPattern !=null}">
+			<ul class="nav-carousel-slides char-tiles"
+				style="background-image: url('${properties.carBgPattern @ context=' styleString '}');">
+			</sly>
+			<sly data-sly-list.carousalList="${characterModel.tileList}">
+			<li><a href="${carousalList.tilePath}"
+				class="${currentPage.name == carousalList.tilePageName  ? 'active' : ''}">
+					<img src="${carousalList.tileImage}"
+					alt="${carousalList.tileImgAltText}-characterimage"
+					data-tracking-id="characters-carousel|${carousalList.alwaysEnglish}|Characters">
+					<span>${carousalList.tileTitle @context='html',i18n}</span>
+			</a></li>
+			</sly>
+			</ul>
+			<input type="hidden" class="prev-tracking-id"
+				value="Navigating Arrows|Left||Character-Carousel"> <input
+				type="hidden" class="next-tracking-id"
+				value="Navigating Arrows|Right||Character-Carousel">
+		</div>
+	</div>
+	<sly
+		data-sly-test="${(properties.chBgImg == null && properties.chBgColor == null )||(properties.charBackOption=='image' && properties.chBgImg==null)||(properties.charBackOption=='color' && properties.chBgColor==null)}">
+	<div class="char-detials-comp">
+	</sly>
+	<sly
+		data-sly-test="${properties.charBackOption=='color' && properties.chBgColor!=null}">
+	<div class="char-detials-comp"
+		style="background: ${properties.chBgColor@context='styleString'}">
+	</sly>
+	<sly
+		data-sly-test="${properties.charBackOption=='image' && properties.chBgImg!=null}">
+	<div class="char-detials-comp"
+		style="background-image: url('${properties.chBgImg @context=' styleString '}');">
+	</sly>
+	<div class="container">
+		<button type="button" data-url="${characterModel.prevCharacter}"
+			data-role="none" class="cd-prev"
+			data-tracking-id="navigating-arrows|left|${characterModel.prevCharacter}">Previous</button>
+		<div class="char-detials-content">
+			<div class="char-details-image"
+				style="float: ${properties.alignPrimaryImage@context='styleString'}">
+				<img src="${properties.charImageRef}"
+					alt="${properties.charAltText @i18n}">
+			</div>
+			<div class="char-details-description">
+				<h1>${properties.tileTitle @context='html',i18n}</h1>
+				<input type="hidden" id="tracCharTitle"
+					value="${properties.alwaysEnglish @context='html'}" /> <small
+					data-sly-test="${properties.charSubtitle!=null}">${properties.charSubtitle
+					@context='html',i18n}</small>
+				<p>${properties.charDesc @context='html',i18n}</p>
+			</div>
+		</div>
+		<sly
+			data-sly-test="${properties.charSecondayImage!=null||properties.subHeading!=null||properties.charExtraDesc!=null}">
+		<div class="char-detials-content">
+			<div class="char-details-image img-right"
+				style="float: ${properties.alignSecondaryImage@context='styleString'}"
+				data-sly-test="${properties.charSecondayImage!=null && properties.charSecondayImageAltText!=null}">
+				<img src="${properties.charSecondayImage}"
+					alt="${properties.charSecondayImageAltText @i18n}">
+			</div>
+			<div class="char-details-description"
+				data-sly-test="${properties.subHeading!=null&&properties.charExtraDesc!=null}">
+				<h2 data-sly-test="${properties.subHeading!=null}">${properties.subHeading
+					@ context='html',i18n}</h2>
+				<p data-sly-test="${properties.charExtraDesc!=null}">${properties.charExtraDesc
+					@ context='html',i18n}</p>
+			</div>
+		</div>
+		</sly>
+		<button type="button" data-url="${characterModel.nextCharacter}"
+			data-role="none" class="cd-next"
+			data-tracking-id="navigating-arrows|right|${characterModel.nextCharacter}">Next</button>
+	</div>
+</div>
+</div>
+</sly>

@@ -1,0 +1,18 @@
+<sly data-sly-test="${wcmmode.edit}">${' Configure Back To Top
+Component' @ i18n}</sly>
+<sly data-sly-test="${properties.backOption == 'color'}"> <a
+	href="#" data-tracking-id="clickEvents|Back To Top"
+	class="play-backtotop"
+	style="background-color: ${properties.backgroundColour@ context='styleString'}">${properties.text
+	@ context='html',i18n}</a> </sly>
+<sly data-sly-test="${properties.backOption == 'image'}"> <a
+	href="#" data-tracking-id="clickEvents|Back To Top"
+	class="play-backtotop"
+	style="background-image: url('${properties.bgImage @ context=' styleString '}'); background-repeat: no-repeat;">${properties.text
+	@ context='html',i18n}</a> </sly>
+
+<sly data-sly-test="${properties.backOption == null}"> <a href="#"
+	class="play-backtotop" data-tracking-id="clickEvents|Back To Top">${properties.text
+	@ context='html',i18n}</a> </sly>
+
+

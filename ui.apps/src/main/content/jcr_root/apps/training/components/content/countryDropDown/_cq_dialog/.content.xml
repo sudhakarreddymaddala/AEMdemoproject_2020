@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	jcr:primaryType="nt:unstructured" jcr:title="Country Dropdown"
+	sling:resourceType="cq/gui/components/authoring/dialog"
+	helpPath="https://www.adobe.com/go/aem_cmp_text_v2">
+	<content jcr:primaryType="nt:unstructured"
+		sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/coral/foundation/tabs"
+				maximized="{Boolean}true">
+				<items jcr:primaryType="nt:unstructured">
+					<dropdownDetails jcr:primaryType="nt:unstructured"
+						jcr:title="Dropdown Details"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<dropdownTitle jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Dropdown Title"
+								fieldLabel="Country Dropdown Title" name="./dropdownTitle" />
+							<targetUrl jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Open URLs In" name="./target">
+								<items jcr:primaryType="nt:unstructured">
+									<newTab jcr:primaryType="nt:unstructured"
+										selected="{Boolean}true" text="New Tab" value="_blank" />
+									<sameWindow jcr:primaryType="nt:unstructured"
+										text="Same Window" value="_self" />
+								</items>
+							</targetUrl>
+							<dropdowntext jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Dropdown default text"
+								fieldLabel="Dropdown Text" name="./defaultText" />
+						</items>
+					</dropdownDetails>
+					<countryDetails jcr:primaryType="nt:unstructured"
+						jcr:title="Country Details"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<countrySelectionOption
+								granite:class="method-countrySelection"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Method of country selection"
+								name="./countrySelectionOption">
+								<items jcr:primaryType="nt:unstructured">
+									<automatic jcr:primaryType="nt:unstructured"
+										text="automatic" value="automatic" />
+									<manual jcr:primaryType="nt:unstructured" text="manual"
+										value="manual" />
+								</items>
+							</countrySelectionOption>
+							<columns granite:class="method-Selection"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<links jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+										composite="{Boolean}true" fieldLabel="Country Details">
+										<field jcr:primaryType="nt:unstructured"
+											sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+											name="./countryDetails">
+											<items jcr:primaryType="nt:unstructured">
+												<column jcr:primaryType="nt:unstructured"
+													sling:resourceType="granite/ui/components/coral/foundation/container">
+													<items jcr:primaryType="nt:unstructured">
+														<country jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+															fieldLabel="Country" name="./countryName"
+															required="{Boolean}true" />
+														<siteurl jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+															fieldLabel="Country Site URL" name="./countrySiteUrl"
+															required="{Boolean}true" />
+													</items>
+												</column>
+											</items>
+										</field>
+									</links>
+								</items>
+							</columns>
+						</items>
+					</countryDetails>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

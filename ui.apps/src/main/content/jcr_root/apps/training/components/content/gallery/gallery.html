@@ -1,0 +1,249 @@
+<sly
+	data-sly-test="${(properties.galleryFor!='video')&&( properties.galleryFor!='products') &&( properties.galleryFor!=null || properties.plpGalleryFor!='video')}">
+<sly data-sly-test="${wcmmode.edit}"> ${'Configure Gallery' @
+i18n}</sly> <sly
+	data-sly-use.allChars="com.training.core.models.GalleryModel"
+	data-sly-use.trainingPage="com.training.core.models.TrainingPageModel">
+<sly data-sly-test="${properties.backOption}"> <sly
+	data-sly-test="${properties.backOption == 'color'}"> <sly
+	data-sly-test="${properties.backgroundColor != null}"> <sly
+	data-sly-test="${properties.styleFor=='main-characters'}">
+<div
+	class="training-tiles-gallery training-${properties.galleryFor} ${properties.styleFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly> <sly
+	data-sly-test="${properties.styleFor=='others' || properties.styleFor==null}">
+<div class="training-tiles-gallery training-${properties.galleryFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly> </sly> <sly data-sly-test="${properties.backgroundColor == null}"> <sly
+	data-sly-test="${properties.styleFor=='main-characters'}">
+<div
+	class="training-tiles-gallery training-${properties.galleryFor} ${properties.styleFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> <sly
+	data-sly-test="${properties.styleFor=='others' || properties.styleFor==null}">
+<div class="training-tiles-gallery training-${properties.galleryFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> </sly> </sly> <sly data-sly-test="${properties.backOption == 'image'}"> <sly
+	data-sly-test="${properties.fileReferenceBgImg != null}"> <sly
+	data-sly-test.isMaxSteel="${trainingPage.brandName == 'maxsteel'}">
+<div class="training-tiles-gallery training-${properties.galleryFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+</sly> <sly data-sly-test="${!isMaxSteel}"> <sly
+	data-sly-test="${properties.styleFor=='main-characters'}">
+<div
+	class="training-tiles-gallery training-${properties.galleryFor} ${properties.styleFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-size: cover; background-repeat: repeat;">
+</sly> <sly
+	data-sly-test="${properties.styleFor=='others' || properties.styleFor==null}">
+<div class="training-tiles-gallery training-${properties.galleryFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-size: cover; background-repeat: repeat;">
+</sly> </sly> </sly> <sly data-sly-test="${properties.fileReferenceBgImg == null}">
+<sly data-sly-test="${properties.styleFor=='main-characters'}">
+<div
+	class="training-tiles-gallery training-${properties.galleryFor} ${properties.styleFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> <sly
+	data-sly-test="${properties.styleFor=='others' || properties.styleFor==null}">
+<div class="training-tiles-gallery training-${properties.galleryFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> </sly> </sly> </sly> <sly data-sly-test="${properties.backOption == null}"> <sly
+	data-sly-test="${properties.styleFor=='main-characters'}">
+<div
+	class="training-tiles-gallery training-${properties.galleryFor} ${properties.styleFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> <sly
+	data-sly-test="${properties.styleFor=='others' || properties.styleFor==null}">
+<div class="training-tiles-gallery training-${properties.galleryFor}"
+	data-height-sync=".gallery-image" id="${allChars.linkNavOption}"
+	data-link-attribute="${allChars.linkNavOption}">
+</sly> </sly> <sly data-sly-test="${properties.galleryTitleBackOption}"> <sly
+	data-sly-test="${properties.galleryTitleBackOption == 'color'}">
+<sly data-sly-test="${properties.galleryTitleBackgroundColor != null}">
+<div class="gallery-title"
+	style="background-color: ${properties.galleryTitleBackgroundColor@ context='styleString'}">
+</sly> <sly data-sly-test="${properties.galleryTitleBackgroundColor == null}">
+<div class="gallery-title">
+</sly> </sly> <sly data-sly-test="${properties.galleryTitleBackOption == 'image'}">
+<sly
+	data-sly-test="${properties.galleryTitleFileReferenceBgImg != null}">
+<div class="gallery-title"
+	style="background-image: url('${properties.galleryTitleFileReferenceBgImg @ context=' styleString '}'); background-size: cover; background-repeat: repeat;">
+</sly> <sly
+	data-sly-test="${properties.galleryTitleFileReferenceBgImg == null}">
+<div class="gallery-title">
+</sly> </sly> </sly> <sly data-sly-test="${properties.galleryTitleBackOption==null}">
+<div class="gallery-title">
+</sly> <sly data-sly-test="${properties.galleryTitle != null}">
+<h2>${properties.galleryTitle @i18n}</h2>
+</sly> <sly data-sly-test="${properties.galleryDescription != null}">
+${properties.galleryDescription @context='html',i18n} </sly>
+</div>
+<sly data-sly-test="${wcmmode.edit}"> <sly
+	data-sly-test="${properties.galleryFrom == 'manual'}">
+<div class="gallery-tile">
+	<ul>
+		<li class="${properties.columnLayout}">
+			<div
+				data-sly-resource="${'gallerycolumn1' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+		<li class="${properties.columnLayout}">
+			<div
+				data-sly-resource="${'gallerycolumn2' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+		<li class="${properties.columnLayout}">
+			<div
+				data-sly-resource="${'gallerycolumn3' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+		<li class="${properties.columnLayout}">
+			<div
+				data-sly-resource="${'gallerycolumn4' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+	</ul>
+</div>
+</sly> </sly>
+
+<div class="gallery-tile">
+	<sly data-sly-test="${!wcmmode.edit}"> <sly
+		data-sly-test="${properties.galleryFrom == 'manual'}">
+	<ul>
+		<sly data-sly-list.char="${allChars.manualAuthorCharList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.linktoPages}" href="${char.tilePath}"
+			data-category="${char.tileCategory}"
+			data-tracking-id="image gallery section|${properties.galleryAnalticsText}|${char.tileTitle @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image">
+					<img src="${char.tileImage}" data-src="${char.tileImage}"
+						data-hover="${char.hoverOverImg}"
+						data-hoveralt="${char.hoverOverImgAlt}"
+						alt="${char.tileImgAltText}" class="image-container" />
+				</div>
+				<span>${char.tileTitle @context='html',i18n}</span>
+		</a> <sly data-sly-test="${!properties.linktoPages}">
+			<div class="gallery-image">
+				<img src="${char.tileImage}" data-src="${char.tileImage}"
+					data-hover="${char.hoverOverImg}"
+					data-hoveralt="${char.hoverOverImgAlt}"
+					alt="${char.tileImgAltText}" class="image-container" />
+			</div>
+			<span>${char.tileTitle @context='html',i18n}</span> </sly></li>
+		</sly>
+	</ul>
+	</sly> </sly>
+
+	<sly data-sly-test="${properties.galleryFrom == 'landing'}">
+	<ul>
+		<sly data-sly-list.char="${allChars.characterList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.linktoPages}" href="${char.tilePath}"
+			data-category="${char.tileCategory}"
+			data-tracking-id="image gallery section|${properties.galleryAnalticsText}|${char.tileTitle @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image">
+					<img src="${char.tileImage}" data-src="${char.tileImage}"
+						data-hover="${char.hoverOverImg}"
+						data-hoveralt="${char.hoverOverImgAlt}"
+						alt="${char.tileImgAltText}" class="image-container" />
+				</div>
+				<span>${char.tileTitle @context='html',i18n}</span>
+		</a> <sly data-sly-test="${!properties.linktoPages}">
+			<div class="gallery-image">
+				<img src="${char.tileImage}" data-src="${char.tileImage}"
+					data-hover="${char.hoverOverImg}"
+					data-hoveralt="${char.hoverOverImgAlt}"
+					alt="${char.tileImgAltText}" class="image-container" />
+			</div>
+			<span>${char.tileTitle @context='html',i18n}</span> </sly></li>
+		</sly>
+	</ul>
+	</sly>
+
+	<sly data-sly-test="${properties.galleryFrom == 'category'}">
+	<ul>
+		<sly data-sly-list.char="${allChars.categoryCharacterList}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.linktoPages}" href="${char.tilePath}"
+			data-category="${char.tileCategory}"
+			data-tracking-id="image gallery section|${properties.galleryAnalticsText}|${char.tileTitle @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image">
+					<img src="${char.tileImage}" data-src="${char.tileImage}"
+						data-hover="${char.hoverOverImg}"
+						data-hoveralt="${char.hoverOverImgAlt}"
+						alt="${char.tileImgAltText}" class="image-container" />
+				</div>
+				<span>${char.tileTitle @context='html',i18n}</span>
+		</a> <sly data-sly-test="${!properties.linktoPages}">
+			<div class="gallery-image">
+				<img src="${char.tileImage}" data-src="${char.tileImage}"
+					data-hover="${char.hoverOverImg}"
+					data-hoveralt="${char.hoverOverImgAlt}"
+					alt="${char.tileImgAltText}" class="image-container" />
+			</div>
+			<span>${char.tileTitle @context='html',i18n}</span> </sly></li>
+		</sly>
+	</ul>
+	</sly>
+
+	<sly data-sly-test="${properties.galleryFrom == 'by date'}">
+	<ul>
+		<sly data-sly-list.char="${allChars.charactesListByDate}">
+		<li class="${properties.columnLayout}"><a
+			data-sly-test="${properties.linktoPages}" href="${char.tilePath}"
+			data-category="${char.tileCategory}"
+			data-tracking-id="image gallery section|${properties.galleryAnalticsText}|${char.tileTitle @context='html'}|${properties.galleryFor}">
+				<div class="gallery-image">
+					<img src="${char.tileImage}" data-src="${char.tileImage}"
+						data-hover="${char.hoverOverImg}"
+						data-hoveralt="${char.hoverOverImgAlt}"
+						alt="${char.tileImgAltText}" class="image-container" />
+				</div>
+				<span>${char.tileTitle @context='html',i18n}</span>
+		</a> <sly data-sly-test="${!properties.linktoPages}">
+			<div class="gallery-image">
+				<img src="${char.tileImage}" data-src="${char.tileImage}"
+					data-hover="${char.hoverOverImg}"
+					data-hoveralt="${char.hoverOverImgAlt}"
+					alt="${char.tileImgAltText}" class="image-container" />
+			</div>
+			<span>${char.tileTitle @context='html',i18n}</span> </sly></li>
+		</sly>
+	</ul>
+	</sly>
+</sly>
+<div data-sly-test="${properties.ctaButtonText}" class="view-all">
+	<a class="btn btn-view-all"
+		aria-label="View all characters ${properties.galleryTitle}"
+		href=${allChars.ctaButtonLink} role="button">${properties.ctaButtonText
+		@ i18n}</a>
+</div>
+</div>
+<div class="show-more">
+	<a href="javascript:void(0);" class="accordion"
+		data-component-id="image gallery section|${properties.galleryAnalticsText}"
+		data-text-collapse="${properties.showMoreText}"
+		data-text-expand="${properties.showLessText}" aria-expanded="false">
+		${properties.showMoreText @i18n} </a>
+</div>
+</div>
+</sly>
+<sly data-sly-test="${properties.galleryFor == 'video'}"> <sly
+	data-sly-include="videogallery.html"></sly> </sly>
+<sly data-sly-test="${properties.galleryFor == 'products'}"> <sly
+	data-sly-include="productsgallery.html" /> </sly>
+<sly
+	data-sly-test="${properties.galleryFor == null && properties.plpGalleryFor=='video'}">
+<sly data-sly-include="plpvideogallery.html" /> </sly>

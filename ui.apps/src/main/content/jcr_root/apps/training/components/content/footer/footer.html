@@ -1,0 +1,124 @@
+<sly
+	data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientlib.all @ categories='training.footer'}" /> <sly
+	data-sly-test="${wcmmode.edit}">${'Footer component' @ i18n}</sly> <sly
+	data-sly-test="${properties.backOption == 'color'}"> <sly
+	data-sly-test="${properties.backgroundColor != null}"> <footer
+	role="contentinfo"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}"></sly>
+<sly data-sly-test="${properties.backgroundColor == null}"> <footer
+	role="contentinfo"></sly> </sly> <sly
+	data-sly-test="${properties.backOption == 'image'}"> <sly
+	data-sly-test="${properties.fileReferenceBgImg != null}"> <footer
+	role="contentinfo"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-repeat: no-repeat;"></sly>
+<sly data-sly-test="${properties.fileReferenceBgImg == null}"> <footer
+	role="contentinfo"></sly> </sly> <sly
+	data-sly-test="${properties.backOption==null}"> <footer
+	role="contentinfo"></sly>
+<div id="footer">
+	<sly
+		data-sly-use.footerObj="${'com.training.core.models.FooterModel' @ url=currentPage.Path}">
+	<sly data-sly-test="${!footerObj.isCountryDropdownExcluded}">
+	<div
+		data-sly-resource="${'dropdown' @ resourceType='wcm/foundation/components/parsys'}"></div>
+	</sly>
+	<div>
+		<div class="training-footer-mattel-logo">
+			<sly data-sly-test="${footerObj.logoURL!=null}"> <sly
+				data-sly-test="${properties.logoTargetUrl =='sameWindow'}"> <a
+				href="${footerObj.logoURL}"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForMattelLogo}|footer">
+				<img src="${properties.fileReference}"
+				alt="${properties.logoAltText @i18n}" />
+			</a> </sly> <sly data-sly-test="${properties.logoTargetUrl =='newTab'}">
+			<a href="${footerObj.logoURL}" target="_blank"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForMattelLogo}|footer">
+				<img src="${properties.fileReference}"
+				alt="${properties.logoAltText @i18n}" /><span class="sr-only">
+					${'Opens in a new tab' @ i18n}</span>
+			</a> </a> </sly> <sly data-sly-test="${properties.logoTargetUrl =='newWindow'}">
+			<a data-url="${footerObj.logoURL}"
+				onclick="window.open(this.dataset.url,'TRAINING','width=500, height=500');"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForMattelLogo}|footer">
+				<img src="${properties.fileReference}"
+				alt="${properties.logoAltText @i18n}" /><span class="sr-only">
+					${'Opens in new window' @ i18n}</span>
+			</a> </a> </sly> </sly>
+			<sly data-sly-test="${footerObj.logoURL == null}"> <img
+				src="${properties.fileReference}"
+				alt="${properties.logoAltText @i18n}" /> </sly>
+		</div>
+
+		<div class="training-esrb-logo">
+			<sly data-sly-test="${properties.esrbTargetUrl =='sameWindow'}">
+			<a href="${properties.esrbLogoURL}"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForEsrbLogo}|footer">
+				<img src="${properties.fileReference1}"
+				alt="${properties.esrbAltText @ i18n}">
+			</a> </sly>
+			<sly data-sly-test="${properties.esrbTargetUrl =='tabWindow'}">
+			<a href="${properties.esrbLogoURL}" target="_blank"
+				aria-label="Continue opens a new window"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForEsrbLogo}|footer">
+				<img src="${properties.fileReference1}"
+				alt="${properties.esrbAltText @ i18n}"><span class="sr-only">
+					${'Opens in a new tab' @ i18n}</span>
+			</a> </sly>
+			<sly data-sly-test="${properties.esrbTargetUrl =='newWindow'}">
+			<a data-url="${properties.esrbLogoURL}"
+				onclick="window.open(this.dataset.url,'TRAINING','width=500, height=500');"
+				aria-label="Continue opens a new window"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForEsrbLogo}|footer">
+				<img src="${properties.fileReference1}"
+				alt="${properties.esrbAltText @ i18n}"><span class="sr-only">
+					${'Opens in new window' @ i18n}</span>
+			</a> </sly>
+
+			<sly data-sly-test="${properties.esrbTargetUrl =='interstitial'}">
+			<a href="javascript:void(0);"
+				data-tracking-id="footer-click|${properties.alwaysEnglish}|${properties.alwaysEnglishForEsrbLogo}|footer"
+				class="btn-view-details" data-toggle="modal"
+				data-url="${properties.esrbLogoURL}"
+				data-target="#interstitialModal"> <img
+				src="${properties.fileReference1}"
+				alt="${properties.esrbAltText @ i18n}"><span class="sr-only">
+					${'Opens in a pop up' @ i18n}</span></a> </sly>
+		</div>
+
+		<div class="training-footer-link">
+			<ul id="footer-nav">
+				<sly data-sly-list.footerList="${footerObj.footerLinksList}">
+
+				<sly data-sly-test="${footerList.linkTarget =='sameWindow'}">
+				<li><a href="${footerList.linkURL}"
+					data-tracking-id="footer-click|${properties.alwaysEnglish}|${footerList.alwaysEnglish}|footer">${footerList.linkText
+						@ i18n}</a></li>
+				</sly> <sly data-sly-test="${footerList.linkTarget =='tabWindow'}">
+				<li><a href="${footerList.linkURL}" target="_blank"
+					data-tracking-id="footer-click|${properties.alwaysEnglish}|${footerList.alwaysEnglish}|footer">${footerList.linkText
+						@ i18n}<span class="sr-only"> ${'Opens in a new tab' @
+							i18n}</span>
+				</a></a></li>
+				</sly> <sly data-sly-test="${footerList.linkTarget =='newWindow'}">
+				<li><a data-url="${footerList.linkURL}"
+					onclick="window.open(this.dataset.url,'TRAINING','width=500, height=500');"
+					data-tracking-id="footer-click|${properties.alwaysEnglish}|${footerList.alwaysEnglish}|footer">
+						${footerList.linkText @ i18n}<span class="sr-only">
+							${'Opens in new window' @ i18n}</span>
+				</a></li>
+				</sly> </sly>
+				<li id="teconsent"></li>
+			</ul>
+			<span>${properties.copyright @ context='html',i18n}</span>
+			<p>${properties.legalText @ context='html',i18n}</p>
+		</div>
+
+	</div>
+</div>
+</sly>
+</footer>
+</sly>
+<sly
+	data-sly-use.footer="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${footer.js @ categories='training.footer'}" /> 

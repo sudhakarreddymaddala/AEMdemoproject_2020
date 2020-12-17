@@ -1,0 +1,81 @@
+<!-- email subscribe -->
+<div class="gem-wrapper">
+	<div class="gem-email-sub-container"
+		style="background-color: ${properties.backgroundColor@context='html'}">
+		<div class="gem-email">
+			<div class="thank-msg" style="display: none;">
+				<h2 data-sly-test="${properties.thankyouTitle}">${properties.thankyouTitle}</h2>
+				<p data-sly-test="${properties.thankyouSubTitle}">${properties.thankyouSubTitle}</p>
+			</div>
+			<div class="form-component crmContainer">
+				<div class="loading-wrapper">
+					<span class="loader-content">Loading...</span>
+				</div>
+
+				<h3 data-sly-test="${properties.formHeader}">${properties.formHeader}</h3>
+				<h4 data-sly-test="${properties.formSubHeader}">${properties.formSubHeader}</h4>
+
+				<div class="popover_window" style="display: none;">
+					<p data-sly-test="${properties.emailBubblePopUpText}">
+						<!---popuptext - start -->
+						${properties.emailBubblePopUpText @context='html'}
+						<!--popuptext - end -->
+					</p>
+					<div class="popover-close"></div>
+				</div>
+				<form id="crm-form">
+					<div
+						class="col-md-3 col-sm-4 col-xs-12 form-group required no-padding email-input-field">
+						<label class="sr-only" for="emailId">Email</label> <input
+							class="input_field email_field" type="email" id="emailId"
+							autocomplete="off" required maxlength="320"
+							placeholder="${properties.emailIdFillText}">
+						<div class="form-row form-action-btn"
+							data-content="Please try again.">
+							<div class="form-submit">
+								<button data-sly-test="${properties.signUpButtonText}"
+									class="btn theme-btn btn-arrow-right" id="crm-form-submit">${properties.signUpButtonText}</button>
+							</div>
+						</div>
+						<div data-sly-test="${properties.emailIdValidationMsg}"
+							class="help-block form-error" id="emailValidationError">
+							<span class="sr-only">Error</span>${properties.emailIdValidationMsg}
+						</div>
+						<div class="help-block api-error">Email already exists.</div>
+					</div>
+
+					<div class="signup-info">
+						<p data-sly-test="${properties.checkBoxText}">${properties.checkBoxText
+							@context='html'}</p>
+					</div>
+				</form>
+				<input type="hidden" value="${properties.nosubscriptionId}"
+					id="nosubscriptionId"> <input type="hidden"
+					value="${properties.primarySubscriptionId}"
+					id="primarySubscriptionId"> <input type="hidden"
+					value="${properties.clientIdPublish}" id="formClientId"> <input
+					type="hidden" value="${properties.clientSecretPublish}"
+					id="formClientSecret"> <input type="hidden"
+					value="${properties.sourceId}" id="formSourceId"> <input
+					type="hidden" value="${properties.countryCode}"
+					id="formCountryCode"> <input type="hidden"
+					value="${properties.locale}" id="formLocale"> <input
+					type="hidden" value="${currentPage.getLanguage.getLanguage}"
+					id="pageLocale">
+				<!-- Hidden values for analytics   -->
+				<input type="hidden" value="${properties.formHeader}"
+					id="form-title"> <input type="hidden"
+					value="${properties.signUpButtonText}" id="form-signup">
+				<div class="checkbox" style="display: none">
+					<input type="checkbox" checked>Yes, I'd like to receive
+					emails and notifications from Fisher-Price and the Mattel family of
+					brands.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<sly
+	data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly
+	data-sly-call="${clientlib.js @ categories='training.emailSubscription'}"></sly>

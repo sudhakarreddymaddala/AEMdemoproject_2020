@@ -1,0 +1,334 @@
+<sly data-sly-test="${wcmmode.edit}"> ${'Configure Gallery -
+Videos' @ i18n} </sly>
+<sly data-sly-test="${properties.backOption}"> <sly
+	data-sly-test="${properties.backOption == 'color'}"> <sly
+	data-sly-test="${properties.backgroundColor != null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly> <sly data-sly-test="${properties.backgroundColor == null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}">
+</sly> </sly> <sly data-sly-test="${properties.backOption == 'image'}"> <sly
+	data-sly-test="${properties.fileReferenceBgImg != null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+</sly> <sly data-sly-test="${properties.fileReferenceBgImg == null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}">
+</sly> </sly> </sly>
+<sly data-sly-test="${properties.backOption == null}">
+<div class="training-${properties.galleryFor}"
+	data-height-sync=".gallery-image"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}">
+</sly>
+<div class="video-component" id="video-gallery-player-component">
+	<sly data-sly-test="${properties.galleryTitleBackOption}"> <sly
+		data-sly-test="${properties.galleryTitleBackOption == 'color'}">
+	<sly data-sly-test="${properties.galleryTitleBackgroundColor != null}">
+	<div class="video-page-title"
+		style="background-color: ${properties.galleryTitleBackgroundColor@ context='styleString'}">
+	</sly> <sly data-sly-test="${properties.galleryTitleBackgroundColor == null}">
+	<div class="video-page-title">
+	</sly> </sly> <sly data-sly-test="${properties.galleryTitleBackOption == 'image'}">
+	<sly
+		data-sly-test="${properties.galleryTitleFileReferenceBgImg != null}">
+	<div class="video-page-title"
+		style="background-image: url('${properties.galleryTitleFileReferenceBgImg @ context=' styleString '}'); background-repeat: repeat;">
+	</sly> <sly
+		data-sly-test="${properties.galleryTitleFileReferenceBgImg == null}">
+	<div class="video-page-title">
+	</sly> </sly> </sly>
+
+	<sly data-sly-test="${properties.galleryTitleBackOption==null}">
+	<div class="video-page-title">
+	</sly>
+
+	<h2 data-sly-test="${properties.galleryTitle}">${properties.galleryTitle
+		@ i18n}</h2>
+	<p data-sly-test="${properties.galleryDescription}">${properties.galleryDescription
+		@context='html',i18n}</p>
+
+</div>
+<sly data-sly-test="${properties.playerAvail}">
+
+<div
+	data-sly-use.allVideos="com.mattel.play.core.model.VideoGalleryModel"
+	class="video-player-container">
+	<div class="video-player-in">
+		<sly data-sly-test="${properties.galleryFrom == 'by date'}"> <a
+			data-sly-test="${allVideos.videoListByDate.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<sly data-sly-test="${properties.galleryFrom == 'category'}"> <a
+			data-sly-test="${allVideos.videoListByCategory.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<sly data-sly-test="${properties.galleryFrom == 'landing'}"> <a
+			data-sly-test="${allVideos.videoListLanding.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<sly data-sly-test="${properties.galleryFrom == 'manual'}"> <a
+			data-sly-test="${allVideos.videoListManual.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-prev"
+			data-action="prev"></a> </sly>
+		<div class="video-banner video-player-wrapper">
+			<sly data-sly-test="${properties.disableAutoplay == null}">
+			<div id="main-player-container" class="featured-promo video-player"
+				data-autoplay="true"></div>
+			</sly>
+			<sly data-sly-test="${properties.disableAutoplay != null}">
+			<div id="main-player-container" class="featured-promo video-player"
+				data-autoplay="${properties.disableAutoplay}"></div>
+			</sly>
+
+		</div>
+		<div class="video-player-label col-md-12">
+			<h2 id="video-player-title">${'Video' @ i18n}</h2>
+			<p id="video-player-desc">${'Description Goes Here ' @ i18n}</p>
+		</div>
+		<sly data-sly-test="${properties.galleryFrom == 'by date'}"> <a
+			data-sly-test="${allVideos.videoListByDate.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+		<sly data-sly-test="${properties.galleryFrom == 'category'}"> <a
+			data-sly-test="${allVideos.videoListByCategory.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+		<sly data-sly-test="${properties.galleryFrom == 'landing'}"> <a
+			data-sly-test="${allVideos.videoListLanding.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+		<sly data-sly-test="${properties.galleryFrom == 'manual'}"> <a
+			data-sly-test="${allVideos.videoListManual.size>1}"
+			href="javascript:void(0)" class="slide-btn cd-next"
+			data-action="next"></a> </sly>
+	</div>
+
+</div>
+
+</sly>
+
+<div id="videos-gallery" class="videos-gallery-playlist">
+	<sly data-sly-use.scriptUrl="com.mattel.play.core.model.PlayPageModel">
+	<div class="training-tiles-gallery default">
+		<div class="gallery-tile"
+			data-player-available="${properties.playerAvail}">
+			<h2 class="video-heading" data-sly-test="${properties.newestVideos}">${properties.newestVideos
+				@ i18n}</h2>
+			<sly
+				data-sly-test="${wcmmode.edit && properties.galleryFrom == 'manual'}">
+			<div class="gallery-tile">
+				<ul>
+					<li class="${properties.columnLayout}">
+						<div
+							data-sly-resource="${'videoGalleryColumn1' @ resourceType='wcm/foundation/components/parsys'}"></div>
+					</li>
+					<li class="${properties.columnLayout}">
+						<div
+							data-sly-resource="${'videoGalleryColumn2' @ resourceType='wcm/foundation/components/parsys'}"></div>
+					</li>
+					<li class="${properties.columnLayout}">
+						<div
+							data-sly-resource="${'videoGalleryColumn3' @ resourceType='wcm/foundation/components/parsys'}"></div>
+					</li>
+					<li class="${properties.columnLayout}">
+						<div
+							data-sly-resource="${'videoGalleryColumn4' @ resourceType='wcm/foundation/components/parsys'}"></div>
+					</li>
+				</ul>
+			</div>
+			</sly>
+			<input type="hidden" value="${properties.galleryAnalticsText}"
+				id="filter-alway-english" />
+			<sly data-sly-test="${properties.galleryFrom == 'by date'}"> <sly
+				data-sly-use.allVideos="com.mattel.play.core.model.VideoGalleryModel">
+			<sly data-sly-test.checkLength="${allVideos.videoListByDate.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoListByDate}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+						</div> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='false'}">
+						<span class="center txt-truncate">${video.videoTitle @
+							i18n}</span> <span class="tile-content center" style="display: none">${video.videoTitle}</span>
+						</sly> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='true'}">
+						<span class="tile-content center">${video.videoTitle @
+							i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName != 'fisher-price'}"> <span
+							class="tile-content center">${video.videoTitle @ i18n}</span> </sly> <span
+						class="tile-desc hidden">${video.videoDesc
+							@context='html',i18n}</span>
+						<div class="playing-overlay">
+							<span class="training-icon"><em class="fas fa-play"></em></span> <span
+								class="training-text" data-sly-test="${properties.nowPlayingText}">${properties.nowPlayingText
+								@ i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+
+			<sly data-sly-test="${properties.galleryFrom == 'category'}"> <sly
+				data-sly-use.allVideos="com.mattel.play.core.model.VideoGalleryModel">
+			<sly
+				data-sly-test.checkLength="${allVideos.videoListByCategory.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoListByCategory}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+						</div> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='false'}">
+						<span class="center txt-truncate">${video.videoTitle @
+							i18n}</span> <span class="tile-content center" style="display: none">${video.videoTitle
+							@ i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='true'}">
+						<span class="tile-content center">${video.videoTitle @
+							i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName != 'fisher-price'}"> <span
+							class="tile-content center">${video.videoTitle @ i18n}</span> </sly> <span
+						class="tile-desc hidden">${video.videoDesc
+							@context='html',i18n}</span>
+						<div class="playing-overlay">
+							<span class="training-icon"><em class="fas fa-play"></em></span> <span
+								class="training-text" data-sly-test="${properties.nowPlayingText}">${properties.nowPlayingText
+								@ i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+
+			<sly data-sly-test="${properties.galleryFrom == 'landing'}"> <sly
+				data-sly-use.allVideos="com.mattel.play.core.model.VideoGalleryModel">
+			<sly
+				data-sly-test.checkLength="${allVideos.videoListLanding.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoListLanding}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+						</div> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='false'}">
+						<span class="center txt-truncate">${video.videoTitle @
+							i18n}</span> <span class="tile-content center" style="display: none">${video.videoTitle
+							@ i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='true'}">
+						<span class="tile-content center">${video.videoTitle @
+							i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName != 'fisher-price'}"> <span
+							class="tile-content center">${video.videoTitle @ i18n}</span> </sly> <span
+						class="tile-desc hidden">${video.videoDesc
+							@context='html',i18n}</span>
+						<div class="playing-overlay">
+							<span class="training-icon"><em class="fas fa-play"></em></span> <span
+								class="training-text" data-sly-test="${properties.nowPlayingText}">${properties.nowPlayingText
+								@ i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+
+			<sly
+				data-sly-test="${!wcmmode.edit && properties.galleryFrom == 'manual'}">
+			<sly
+				data-sly-use.allVideos="com.mattel.play.core.model.VideoGalleryModel">
+			<sly data-sly-test.checkLength="${allVideos.videoListManual.size<=1}" />
+			<ul class="training-list" id="player-gallery-thumbnail-datas"
+				data-empty="No Records Found."
+				data-sly-list.video="${allVideos.videoListManual}">
+				<li data-index="${videoList.index}"
+					class="${checkLength?'hidden':''} ${properties.columnLayout}"
+					data-video-id="${video.videoId}"><sly
+						data-sly-test.concatenated="${'{0}{1}' @ format=[video.videoUrl||allVideos.videoUrl, video.videoName]}">
+					<a href="${concatenated}" data-detail-link="${concatenated}"
+						target="_self"
+						data-tracking-id="Video Gallery Section|${video.alwaysEnglish}|${video.alwaysEnglish}|Videos"
+						data-gallery="">
+						<div class="gallery-image">
+							<img src="${video.videoThumbnail}" alt="${video.thumbnailAltTxt}" />
+						</div> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='false'}">
+						<span class="center txt-truncate">${video.videoTitle @
+							i18n}</span> <span class="tile-content center" style="display: none">${video.videoTitle
+							@ i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName == 'fisher-price' && scriptUrl.ifSiteisMattelPlay=='true'}">
+						<span class="tile-content center">${video.videoTitle @
+							i18n}</span> </sly> <sly
+							data-sly-test="${scriptUrl.brandName != 'fisher-price'}"> <span
+							class="tile-content center">${video.videoTitle @ i18n}</span> </sly> <span
+						class="tile-desc hidden">${video.videoDesc
+							@context='html',i18n}</span>
+						<div class="playing-overlay">
+							<span class="training-icon"><em class="fas fa-play"></em></span> <span
+								class="training-text" data-sly-test="${properties.nowPlayingText}">${properties.nowPlayingText
+								@i18n}</span>
+						</div>
+					</a> </sly></li>
+			</ul>
+			</sly> </sly>
+
+			<div class="view-all" data-sly-test="${properties.ctaButtonText}">
+				<sly data-sly-test.myVar="${properties.ctaButtonLink}"
+					data-sly-use.info="${'com.mattel.play.core.helper.PlayHelper' @ text= myVar}">
+				<a class="btn btn-view-all"
+					aria-label="View all products ${properties.galleryTitle}"
+					data-tracking-id="Video Gallery Section|${properties.galleryAnalticsText}|viewAll"
+					href=${info.pathURL} role="button">${properties.ctaButtonText @
+					i18n}</a> </sly>
+			</div>
+		</div>
+		<div class="show-more ${checkLength?'hidden':''}">
+			<a href="javascript:void(0);" class="accordion"
+				data-component-id="video gallery section|${properties.galleryAnalticsText}"
+				data-text-collapse="${properties.showMoreText}"
+				data-text-expand="${properties.showLessText}" aria-expanded="false">
+				${properties.showMoreText @ i18n} </a>
+		</div>
+	</div>
+	</sly>
+</div>
+</div>
+</div>
+
+<sly
+	data-sly-use.clientlibVideogallery="/libs/granite/sightly/templates/clientlib.html">
+<sly
+	data-sly-call="${clientlibVideogallery.js @ categories='play.videogallery'}" />
+</sly>
+

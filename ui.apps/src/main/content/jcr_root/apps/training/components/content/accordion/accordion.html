@@ -1,0 +1,78 @@
+<sly data-sly-test="${wcmmode.edit}">${' Configure Accordian
+Module' @ i18n}</sly>
+<sly data-sly-test="${properties.backOption == 'color'}">
+<div class="accordion-component"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}"
+	data-sly-use.accordionInfo="com.training.core.models.AccordionModel">
+</sly>
+<sly data-sly-test="${properties.backOption == 'image'}">
+<div
+	class="accordion-component ${properties.accordianFor == 'others' ? 'withbg' : ''}"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	style="background-image: url('${properties.fileReferenceBgImg @ context=' styleString '}');"
+	data-sly-use.accordionInfo="com.training.core.models.AccordionModel">
+</sly>
+<sly data-sly-test="${properties.backOption==null}">
+<div class="accordion-component"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-sly-use.accordionInfo="com.training.core.models.AccordionModel">
+</sly>
+<div class="title-block">
+	<h2>${properties.title @i18n}</h2>
+	<div class="hidden-xs hidden-sm hidden-md">${properties.acDescription
+		@ context='html',i18n}</div>
+	<sly data-sly-test.usMobileDesc="${properties.mobiledevice =='true'}">
+	<div class="hidden-lg">${(properties.mobileDescription ||
+		properties.acDescription) @ context='html',i18n}</div>
+	</sly>
+
+	<sly data-sly-test="${!usMobileDesc}">
+	<div class="hidden-lg">${properties.acDescription @
+		context='html',i18n}</div>
+	</sly>
+
+</div>
+<div class="accordion"
+	data-sly-list.imageGallery="${accordionInfo.accordianList}">
+	<div>
+		<sly
+			data-sly-test.hideInMobile="${properties.hideformobiledevice =='true'}">
+		<div class="hidden-xs hidden-sm hidden-md">
+			<h2 class="accordion-title">
+				${imageGallery.contentTitle @i18n}<a href="javascript:void(0);"
+					data-tracking-id="Accordian Section|Accordian Section|Expand Button|${imageGallery.contentTitle}"
+					class="arrow ${wcmmode.edit?'arrowUp':'arrowDown'}"
+					aria-expanded="false" aria-label="${imageGallery.contentTitle}"></a>
+			</h2>
+			<div class="accordion-content ${wcmmode.edit?'default':''}">
+				<sly
+					data-sly-test.concatenated="${'{0}{1}' @ format=['imgtext', imageGalleryList.index]}">
+				<div
+					data-sly-resource="${concatenated @resourceType='/apps/mattel/play/components/content/imageAndText'}"></div>
+				</sly>
+			</div>
+		</div>
+		</sly>
+
+		<sly data-sly-test="${!hideInMobile}">
+		<h2 class="accordion-title">
+			${imageGallery.contentTitle @i18n}<a href="javascript:void(0);"
+				data-tracking-id="Accordian Section|Accordian Section|Expand Button|${imageGallery.contentTitle}"
+				class="arrow ${wcmmode.edit?'arrowUp':'arrowDown'}"
+				aria-expanded="false" aria-label="${imageGallery.contentTitle }"></a>
+		</h2>
+		<div class="accordion-content ${wcmmode.edit?'default':''}">
+			<sly
+				data-sly-test.concatenated="${'{0}{1}' @ format=['imgtext', imageGalleryList.index]}">
+			<div
+				data-sly-resource="${concatenated @resourceType='/apps/mattel/play/components/content/imageAndText'}"></div>
+			</sly>
+		</div>
+		</sly>
+
+	</div>
+</div>

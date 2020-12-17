@@ -1,0 +1,193 @@
+<sly data-sly-test="${wcmmode.edit}">${'Configure Game Categories'
+@ i18n} <sly
+	data-sly-test="${properties.orderGame=='manual' || properties.orderGame==null}">
+<sly data-sly-test="${properties.displayCategories}">
+<div class="cda-banner enable-carousel-nav" data-slide-show="10"
+	data-slide-scroll="1" data-dots="false" data-autoplay="false"
+	data-arrows="true">
+	<div class="crm-container">
+		<sly
+			data-sly-use.categoryFilter="com.training.core.models.CategoryFilterModel">
+		<a href="javascript:void(0)" class="category-drpdown-display">All<span></span></a>
+		<sly
+			data-sly-test="${(properties.catBgReference == null && properties.catBgColor == null )|| (properties.catBackOption =='image' && properties.catBgReference == null ) || (properties.catBackOption =='color' && properties.catBgColor == null )}">
+		<ul class="nav-carousel-slides nav-categorylist">
+		</sly> <sly
+			data-sly-test="${properties.catBackOption =='image' && properties.catBgReference != null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			style="background: url('${properties.catBgReference @ context=' styleString '}') no-repeat 0 0;">
+		</sly> <sly
+			data-sly-test="${properties.catBackOption =='color' && properties.catBgColor != null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			style="background-color: ${properties.catBgColor@ context='styleString'}">
+		</sly>
+		<li data-sly-test="${properties.allLabel}"><sly
+				data-sly-test.myVar="${categoryFilter.homePagePath}"
+				data-sly-use.info="${'com.training.core.helper.TrainingHelper' @ text= myVar}">
+			<a href="${info.pathURL}">${properties.allLabel @ i18n}</a> </sly></li>
+		<sly data-sly-list.head="${categoryFilter.categoryList}">
+		<li><sly data-sly-test.myVar="${head.catUrl}"
+				data-sly-use.info="${'com.training.core.helper.TrainingHelper' @ text= myVar}">
+			<a href="${info.pathURL}"
+				class="${currentPage.name == head.catName  ? 'active' : ''}"
+				target="_self"
+				data-tracking-id="Category Filter Section|Always English|${head.catName @ i18n}|Game Category">${head.catName
+				@ i18n}</a> </sly></li>
+		</sly>
+		</ul>
+		</sly>
+	</div>
+</div>
+</sly> <sly
+	data-sly-test="${(properties.landingBgReference == null && properties.landingBgColor == null )|| (properties.landingBackOption =='image' && properties.landingBgReference == null ) || (properties.landingBackOption =='color' && properties.landingBgColor == null )}">
+<div class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image">
+</sly> <sly
+	data-sly-test="${properties.landingBackOption =='image' && properties.landingBgReference != null }">
+<div class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image"
+	style="background: url('${properties.fileReferenceBgImg @ context=' styleString '}');">
+</sly> <sly
+	data-sly-test="${properties.landingBackOption =='color' && properties.landingBgColor != null }">
+<div class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image"
+	style="background: ${properties.landingBgColor@ context='styleString'}">
+</sly>
+<div class="gallery-tile">
+	<h2>${'All' @ i18n}</h2>
+	<ul class="training-list">
+		<li>
+			<div
+				data-sly-resource="${'columnOne' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+		<li>
+			<div
+				data-sly-resource="${'columnTwo' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+		<li>
+			<div
+				data-sly-resource="${'columnThree' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+		<li>
+			<div
+				data-sly-resource="${'columnFour' @ resourceType='wcm/foundation/components/parsys'}"></div>
+		</li>
+	</ul>
+</div>
+</div>
+</sly> <sly data-sly-test="${properties.orderGame=='automatic'}"> <input
+	type="hidden" id="currentPath" value="${currentNode.path}" /> <input
+	type="hidden" id="currentPagePath" value="${currentPage.path}" /> <sly
+	data-sly-test="${properties.displayCategories}">
+<div class="cda-banner enable-carousel-nav" data-slide-show="10"
+	data-slide-scroll="1" data-dots="false" data-autoplay="false"
+	data-arrows="true">
+	<div class="crm-container">
+		<a href="javascript:void(0)" class="category-drpdown-display"
+			data-category="All" title="All" target="_self">All<span></span></a>
+		<sly
+			data-sly-test="${(properties.catBgReference == null && properties.catBgColor == null )|| (properties.catBackOption =='image' && properties.catBgReference == null ) || (properties.catBackOption =='color' && properties.catBgColor == null )}">
+		<ul class="nav-carousel-slides nav-categorylist">
+		</sly>
+		<sly
+			data-sly-test="${properties.catBackOption =='image' && properties.catBgReference != null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			style="background: url('${properties.catBgReference @ context=' styleString '}') no-repeat 0 0;">
+		</sly>
+		<sly
+			data-sly-test="${properties.catBackOption =='color' && properties.catBgColor != null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			style="background-color: ${properties.catBgColor@ context='styleString'}">
+		</sly>
+
+		</ul>
+	</div>
+</div>
+</sly> <sly
+	data-sly-test="${(properties.landingBgReference == null && properties.landingBgColor == null )|| (properties.landingBackOption =='image' && properties.landingBgReference == null ) || (properties.landingBackOption =='color' && properties.landingBgColor == null )}">
+<div id="training-game"
+	class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image">
+</sly> <sly
+	data-sly-test="${properties.landingBackOption =='image' && properties.landingBgReference != null }">
+<div id="training-game"
+	class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image"
+	style="background: url('${properties.landingBgReference @ context=' styleString '}');">
+</sly> <sly
+	data-sly-test="${properties.landingBackOption =='color' && properties.landingBgColor != null }">
+<div id="training-game"
+	class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image"
+	style="background: ${properties.landingBgColor@ context='styleString'}">
+</sly>
+<div class="gallery-tile">
+	<h2>${'All' @ i18n}</h2>
+	<ul class="training-list">
+
+	</ul>
+
+</div>
+
+</div>
+</sly> </sly>
+
+<sly data-sly-test="${!wcmmode.edit}"> <input type="hidden"
+	id="currentPath" value="${currentNode.path}" /> <input type="hidden"
+	id="currentPagePath" value="${currentPage.path}" /> <input
+	type="hidden" id="analytics-gameGrid"
+	value="${properties.alwaysEnglish}" /> <input type="hidden"
+	value="${properties.nowPlaying}" id="now-playing-text" /> <sly
+	data-sly-test="${properties.displayCategories}">
+<div class="cda-banner enable-carousel-nav" data-slide-show="10"
+	data-slide-scroll="1" data-dots="false" data-autoplay="false"
+	data-arrows="true">
+	<div class="crm-container">
+		<a href="javascript:void(0)" class="category-drpdown-display"
+			data-category="All" title="All" target="_self">${'All' @ i18n}<span></span></a>
+		<sly
+			data-sly-test="${(properties.catBgReference == null && properties.catBgColor == null )|| (properties.catBackOption =='image' && properties.catBgReference == null ) || (properties.catBackOption =='color' && properties.catBgColor == null )}">
+		<ul class="nav-carousel-slides nav-categorylist">
+		</sly>
+		<sly
+			data-sly-test="${properties.catBackOption =='image' && properties.catBgReference != null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			style="background: url('${properties.catBgReference @ context=' styleString '}') no-repeat 0 0;">
+		</sly>
+		<sly
+			data-sly-test="${properties.catBackOption =='color' && properties.catBgColor != null }">
+		<ul class="nav-carousel-slides nav-categorylist"
+			style="background-color: ${properties.catBgColor@ context='styleString'}">
+		</sly>
+
+		</ul>
+	</div>
+</div>
+</sly> <sly
+	data-sly-test="${(properties.landingBgReference == null && properties.landingBgColor == null )|| (properties.landingBackOption =='image' && properties.landingBgReference == null ) || (properties.landingBackOption =='color' && properties.landingBgColor == null )}">
+<div id="training-game"
+	class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image">
+</sly> <sly
+	data-sly-test="${properties.landingBackOption =='image' && properties.landingBgReference != null }">
+<div id="training-game"
+	class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image"
+	style="background: url('${properties.landingBgReference @ context=' styleString '}');">
+</sly> <sly
+	data-sly-test="${properties.landingBackOption =='color' && properties.landingBgColor != null }">
+<div id="training-game"
+	class="training-tiles-gallery training-character-landing-block"
+	data-height-sync=".gallery-image"
+	style="background: ${properties.landingBgColor@ context='styleString'}">
+</sly>
+<div class="gallery-tile">
+	<h2>${'All' @ i18n}</h2>
+	<ul class="training-list">
+
+	</ul>
+
+</div>
+
+</div>
+</sly>

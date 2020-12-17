@@ -1,0 +1,1 @@
+intersitialApp.min.js

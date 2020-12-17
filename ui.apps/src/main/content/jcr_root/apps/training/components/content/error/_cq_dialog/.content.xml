@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	jcr:primaryType="nt:unstructured" jcr:title="Error Component"
+	sling:resourceType="cq/gui/components/authoring/dialog"
+	height="{Long}500">
+	<content jcr:primaryType="nt:unstructured"
+		sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/coral/foundation/tabs"
+				maximized="{Boolean}true">
+				<items jcr:primaryType="nt:unstructured">
+					<errorPageConfig jcr:primaryType="nt:unstructured"
+						jcr:title="Error Page Config"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<column jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<items jcr:primaryType="nt:unstructured">
+									<desktopImage jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+										fieldLabel="Desktop Image" name="./desktopImage"
+										required="{Boolean}true" rootPath="/content/dam" />
+									<mobileImage jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+										fieldLabel="mobile Image" name="./mobileImage"
+										rootPath="/content/dam" />
+									<desktopImageAltText
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldLabel="Desktop Image Alternative Text"
+										name="./desktopImageAltText" required="{Boolean}true" />
+									<mobileImageAltText
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldLabel="Mobile Image Alternative Text"
+										name="./mobileImageAltText" required="{Boolean}true" />
+									<title jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldLabel="Title" name="./title" required="{Boolean}true" />
+									<description cq:xfVariantType="web"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+										fieldLabel="Description" height="20" name="./description"
+										useFixedInlineToolbar="{Boolean}true">
+										<htmlRules jcr:primaryType="nt:unstructured"
+											sling:resourceSuperType="training/components/content/playRtePlugins/htmlRules" />
+										<rtePlugins jcr:primaryType="nt:unstructured"
+											sling:resourceSuperType="training/components/content/playRtePlugins/rtePlugins" />
+										<uiSettings jcr:primaryType="nt:unstructured"
+											sling:resourceSuperType="training/components/content/playRtePlugins/uiSettings" />
+									</description>
+									<ctaLabel jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+										fieldLabel="CTA Label" name="./ctaLabel" />
+									<ctaLink jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+										fieldLabel="CTA Link" name="./ctaLink" />
+									<sectionOpenLinks
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldLabel="Open CTA Links In" name="./clrTargetUrl">
+										<items jcr:primaryType="nt:unstructured">
+											<sameWindow jcr:primaryType="nt:unstructured"
+												text="Same Window" value="sameWindow" />
+											<newTab jcr:primaryType="nt:unstructured"
+												text="New Tab" value="tabWindow" />
+											<newWindow granite:hide="${cqDesign.disableSearch}"
+												jcr:primaryType="nt:unstructured" text="New Window"
+												value="newWindow" />
+										</items>
+									</sectionOpenLinks>
+									<alignment
+										granite:class="cq-dialog-dropdown-showhide"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/form/select"
+										fieldLabel="Content Alignment" name="./alignment">
+										<items jcr:primaryType="nt:unstructured">
+											<left jcr:primaryType="nt:unstructured" text="Left"
+												value="pull-left" />
+											<right jcr:primaryType="nt:unstructured" text="Right"
+												value="pull-right" />
+											<center jcr:primaryType="nt:unstructured"
+												text="center" value="text-center" />
+										</items>
+									</alignment>
+								</items>
+							</column>
+						</items>
+					</errorPageConfig>
+					<errorPageBackgroundConfig
+						jcr:primaryType="nt:unstructured"
+						jcr:title="Error Page Background Config"
+						sling:resourceType="granite/ui/components/coral/foundation/container">
+						<items jcr:primaryType="nt:unstructured">
+							<columns jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+								margin="{Boolean}true">
+								<items jcr:primaryType="nt:unstructured">
+									<column jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/container">
+										<items jcr:primaryType="nt:unstructured">
+											<BgImage jcr:primaryType="nt:unstructured"
+												sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+												allowUpload="{Boolean}false" autoStart="{Boolean}false"
+												class="cq-droptarget"
+												fieldLabel="Section Title Background Image"
+												fileReferenceParameter="./BgImage"
+												mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+												multiple="{Boolean}false" name="./BackgroundImage"
+												uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+											<BgColor jcr:primaryType="nt:unstructured"
+												sling:resourceType="/libs/granite/ui/components/coral/foundation/form/colorfield"
+												fieldLabel="Carousal Background Color" name="./BgColor" />
+											<BgOption
+												granite:class="cq-dialog-dropdown-showhide"
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/coral/foundation/form/select"
+												fieldLabel="Background Option" name="./BackOption">
+												<items jcr:primaryType="nt:unstructured">
+													<image jcr:primaryType="nt:unstructured" text="Image"
+														value="image" />
+													<color jcr:primaryType="nt:unstructured" text="Color"
+														value="color" />
+												</items>
+											</BgOption>
+										</items>
+									</column>
+								</items>
+							</columns>
+						</items>
+					</errorPageBackgroundConfig>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

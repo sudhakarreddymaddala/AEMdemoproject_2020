@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+	xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+	jcr:primaryType="nt:unstructured" jcr:title="Gallery"
+	sling:resourceType="cq/gui/components/authoring/dialog">
+	<content granite:class="training-cmp-list--editor"
+		jcr:primaryType="nt:unstructured"
+		sling:resourceType="granite/ui/components/coral/foundation/container">
+		<items jcr:primaryType="nt:unstructured">
+			<tabs jcr:primaryType="nt:unstructured"
+				sling:resourceType="granite/ui/components/coral/foundation/tabs"
+				maximized="{Boolean}true">
+				<items jcr:primaryType="nt:unstructured">
+					<gallerystyle jcr:primaryType="nt:unstructured"
+						jcr:title="Gallery Style"
+						sling:resourceType="granite/ui/components/foundation/container"
+						margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<backgroundoption
+								granite:class="cq-dialog-dropdown-showhide"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery Background Option" name="./backOption">
+								<items jcr:primaryType="nt:unstructured">
+									<image jcr:primaryType="nt:unstructured" text="Image"
+										value="image" />
+									<color jcr:primaryType="nt:unstructured" text="Color"
+										value="color" />
+								</items>
+							</backgroundoption>
+							<backgroundColour
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+								fieldLabel="Gallery Background Color" name="./backgroundColor" />
+							<backgroundImage
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+								allowUpload="{Boolean}false" autoStart="{Boolean}false"
+								class="cq-droptarget" fieldLabel="Gallery Background Image"
+								fileReferenceParameter="./fileReferenceBgImg"
+								mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+								multiple="{Boolean}false" name="./backgroundImage"
+								uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+						</items>
+					</gallerystyle>
+					<galleryconfig granite:class="galleryconfig"
+						jcr:primaryType="nt:unstructured" jcr:title="Gallery Config"
+						sling:resourceType="granite/ui/components/foundation/container"
+						margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<galleryFor granite:class="gallery-for"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery For" name="./galleryFor">
+								<items jcr:primaryType="nt:unstructured">
+									<select jcr:primaryType="nt:unstructured"
+										text="Gallery For" value="" />
+									<products jcr:primaryType="nt:unstructured"
+										text="products" value="products" />
+									<games jcr:primaryType="nt:unstructured" text="games"
+										value="games" />
+									<characters jcr:primaryType="nt:unstructured"
+										text="characters" value="characters" />
+									<video jcr:primaryType="nt:unstructured" text="video"
+										value="video" />
+								</items>
+							</galleryFor>
+							<galleryfrom granite:class="gallery-from"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery Order" name="./galleryFrom">
+								<items jcr:primaryType="nt:unstructured">
+									<manuallyauthor
+										jcr:primaryType="nt:unstructured" text="manual" value="manual" />
+									<landing jcr:primaryType="nt:unstructured"
+										text="landing" value="landing" />
+									<categories jcr:primaryType="nt:unstructured"
+										text="category" value="category" />
+									<bydate jcr:primaryType="nt:unstructured" text="by date"
+										value="by date" />
+								</items>
+							</galleryfrom>
+							<setStatic
+								granite:class="list-option-listfrom-showhide-target foundation-layout-util-vmargin"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<granite:data jcr:primaryType="nt:unstructured"
+									showhidetargetvalue="static" />
+								<items jcr:primaryType="nt:unstructured">
+									<heading granite:class="coral-Heading coral-Heading--4"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/heading"
+										level="{Long}4" text="Options for Manual Order" />
+									<well jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/well">
+										<items jcr:primaryType="nt:unstructured">
+											<pages
+												granite:class="foundation-layout-util-maximized-alt coral-Form-fieldwrapper"
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/coral/foundation/container">
+												<items jcr:primaryType="nt:unstructured">
+													<multi granite:class=""
+														jcr:primaryType="nt:unstructured"
+														sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+														<field jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+															filter="nosystem" name="./pages"
+															rootPath="/content/mattel-play" />
+													</multi>
+												</items>
+											</pages>
+										</items>
+									</well>
+								</items>
+							</setStatic>
+							<category cq:showOnCreate="{Boolean}true"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="/libs/cq/gui/components/coral/common/form/tagfield"
+								class="gallerydialogcategory" fieldLabel="Select Category"
+								name="./galleryCategory" />
+							<columnLayout
+								granite:class="cq-dialog-dropdown-showhide"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldDescription="Display Gallery in Default/ 3 Column/ 4 Column Layout"
+								fieldLabel="Display Gallery in" name="./columnLayout">
+								<items jcr:primaryType="nt:unstructured">
+									<default jcr:primaryType="nt:unstructured"
+										selected="{Boolean}true" text="Default" value="default" />
+									<threeColumn jcr:primaryType="nt:unstructured"
+										selected="{Boolean}true" text="Three Column Layout"
+										value="column-3" />
+									<fourColumn jcr:primaryType="nt:unstructured"
+										text="Four Column Layout" value="column-4" />
+								</items>
+							</columnLayout>
+							<linktoPages jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+								checked="${not empty cqDesign.linktoPages? cqDesign.linktoPages: true}"
+								fieldDescription="Link Character Tiles to Character Pages"
+								name="./linktoPages"
+								text="Link Character Tiles to Character Pages"
+								uncheckedValue="{Boolean}false" value="{Boolean}true" />
+							<productTileTarget
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Product Tile Target" name="./productTileTarget">
+								<items jcr:primaryType="nt:unstructured">
+									<nolink jcr:primaryType="nt:unstructured" text="No Link"
+										value="nolink" />
+									<internallink jcr:primaryType="nt:unstructured"
+										text="Internal Link" value="internallink" />
+									<retailerInterstitial
+										jcr:primaryType="nt:unstructured" text="Retailer Interstitial"
+										value="retailerinterstitial" />
+								</items>
+							</productTileTarget>
+							<videoDamPath jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+								emptyText="Video Asset Path Here" fieldLabel="Video Source Path"
+								name="./videoAssetPath" rootPath="/content/dam" />
+							<gallerytitle jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Enter Gallery Title"
+								fieldLabel="Gallery Title" name="./galleryTitle"
+								useFixedInlineToolbar="{Boolean}true" />
+							<gallerytitlebackgroundoption
+								granite:class="cq-dialog-dropdown-showhide"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery Title Background Option"
+								name="./galleryTitleBackOption">
+								<items jcr:primaryType="nt:unstructured">
+									<image jcr:primaryType="nt:unstructured" text="Image"
+										value="image" />
+									<color jcr:primaryType="nt:unstructured" text="Color"
+										value="color" />
+								</items>
+							</gallerytitlebackgroundoption>
+							<gallerytitlebackgroundColour
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+								fieldLabel="Gallery Title Background Color"
+								name="./galleryTitleBackgroundColor" />
+							<gallerytitlebackgroundImage
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+								allowUpload="{Boolean}false" autoStart="{Boolean}false"
+								class="cq-droptarget"
+								fieldLabel="Gallery Title Background Image"
+								fileReferenceParameter="./galleryTitleFileReferenceBgImg"
+								mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+								multiple="{Boolean}false" name="./galleryTitleBackgroundImage"
+								uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+							<gallerydescription
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+								fieldDescription="Gallery Description"
+								fieldLabel="Gallery Description" name="./galleryDescription"
+								useFixedInlineToolbar="{Boolean}true">
+								<htmlRules jcr:primaryType="nt:unstructured"
+									sling:resourceSuperType="training/components/content/playRtePlugins/htmlRules" />
+								<rtePlugins jcr:primaryType="nt:unstructured"
+									sling:resourceSuperType="training/components/content/playRtePlugins/rtePlugins" />
+								<uiSettings jcr:primaryType="nt:unstructured"
+									sling:resourceSuperType="training/components/content/playRtePlugins/uiSettings" />
+							</gallerydescription>
+							<playeroption jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								class="gallery-playeroption" defaultChecked="{Boolean}false"
+								name="./playerAvail" text="Show the Player"
+								uncheckedValue="{Boolean}false" value="{Boolean}true" />
+							<disableAutoPlay
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								checked="${not empty cqDesign.disableAutoplay? cqDesign.disableAutoplay: true}"
+								fieldDescription="Disable Auto-play Videos"
+								name="./disableAutoplay" text="Disable Auto-Play ?"
+								uncheckedValue="{Boolean}true" value="{Boolean}false" />
+							<showmoretitle cq:xfVariantType="web"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Show More Text" fieldLabel="Show More Text"
+								name="./showMoreText" required="{Boolean}true"
+								useFixedInlineToolbar="{Boolean}true" />
+							<showlesstitle cq:xfVariantType="web"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Show Less Text" fieldLabel="Show Less Text"
+								name="./showLessText" required="{Boolean}true"
+								useFixedInlineToolbar="{Boolean}true" />
+							<englishfield cq:xfVariantType="web"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="English field for Analytics"
+								fieldLabel="Adobe Tracking Name" name="./galleryAnalticsText"
+								required="{Boolean}true" useFixedInlineToolbar="{Boolean}true" />
+							<ctabuttontext jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="CTA button Text" fieldLabel="CTA Button Text"
+								name="./ctaButtonText" />
+							<ctaButtonTarget
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Open URL In" name="./ctaButtonTarget">
+								<items jcr:primaryType="nt:unstructured">
+									<sameWindow jcr:primaryType="nt:unstructured"
+										text="Same Window" value="sameWindow" />
+									<newTab jcr:primaryType="nt:unstructured" text="New Tab"
+										value="tabWindow" />
+									<newWindow granite:hide="${cqDesign.disableSearch}"
+										jcr:primaryType="nt:unstructured" text="New Window"
+										value="newWindow" />
+								</items>
+							</ctaButtonTarget>
+							<catbuttonlink jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+								fieldLabel="CTA Button Link" name="./ctaButtonLink"
+								rootPath="/content/mattel-play" />
+							<NavigationOptions
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Enter Linking Title Text"
+								fieldLabel="Linking Title" name="./linkTitle" />
+							<nowPlayingText jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Enter Now Playing Text"
+								fieldLabel="Now Playing text" name="./nowPlayingText" />
+						</items>
+					</galleryconfig>
+					<linkToNavigation
+						jcr:primaryType="nt:unstructured" jcr:title="Link To Navigation"
+						sling:resourceType="granite/ui/components/foundation/container"
+						margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<linkToNavigation
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								fieldDescription="Is this section to be linked to Navigation"
+								name="./linkNavigationCheck" text="Link To Navigation?"
+								uncheckedValue="{Boolean}false" value="{Boolean}true" />
+							<NavigationOptions
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Navigation Mapping" name="./linkNavOption">
+								<datasource jcr:primaryType="nt:unstructured"
+									sling:resourceType="/bin/homepagedropdown" />
+							</NavigationOptions>
+						</items>
+					</linkToNavigation>
+					<styleconfig jcr:primaryType="nt:unstructured"
+						jcr:title="Style Config"
+						sling:resourceType="granite/ui/components/foundation/container"
+						margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<columnLayout
+								granite:class="cq-dialog-dropdown-showhide"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldDescription="Apply Styles for"
+								fieldLabel="Apply Styles for" name="./styleFor">
+								<items jcr:primaryType="nt:unstructured">
+									<default jcr:primaryType="nt:unstructured"
+										selected="{Boolean}true" text="Others" value="others" />
+									<mainCharacters
+										jcr:primaryType="nt:unstructured" text="Main Characters"
+										value="main-characters" />
+								</items>
+							</columnLayout>
+						</items>
+					</styleconfig>
+					<plpgalleryconfig granite:class="galleryconfig"
+						jcr:primaryType="nt:unstructured" jcr:title="PLP Gallery Config"
+						sling:resourceType="granite/ui/components/foundation/container"
+						margin="{Boolean}true">
+						<items jcr:primaryType="nt:unstructured">
+							<galleryFor granite:class="plp-gallery-for"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery For" name="./plpGalleryFor">
+								<items jcr:primaryType="nt:unstructured">
+									<Gallery_x0020_For
+										jcr:primaryType="nt:unstructured" text="Gallery For" value="" />
+									<video jcr:primaryType="nt:unstructured" text="video"
+										value="video" />
+								</items>
+							</galleryFor>
+							<galleryfrom granite:class="plp-gallery-from"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery Order" name="./plpGalleryFrom">
+								<items jcr:primaryType="nt:unstructured">
+									<manuallyauthor
+										jcr:primaryType="nt:unstructured" text="manual" value="manual" />
+									<categories jcr:primaryType="nt:unstructured"
+										text="category" value="category" />
+									<bydate jcr:primaryType="nt:unstructured" text="by date"
+										value="by date" />
+								</items>
+							</galleryfrom>
+							<setStatic
+								granite:class="plp-list-option-listfrom-showhide-target foundation-layout-util-vmargin"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/container">
+								<granite:data jcr:primaryType="nt:unstructured"
+									showhidetargetvalue="plp-static" />
+								<items jcr:primaryType="nt:unstructured">
+									<heading granite:class="coral-Heading coral-Heading--4"
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/heading"
+										level="{Long}4" text="Options for Manual Order" />
+									<well jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/coral/foundation/well">
+										<items jcr:primaryType="nt:unstructured">
+											<pages
+												granite:class="foundation-layout-util-maximized-alt coral-Form-fieldwrapper"
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/coral/foundation/container">
+												<items jcr:primaryType="nt:unstructured">
+													<multi granite:class=""
+														jcr:primaryType="nt:unstructured"
+														sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+														<field jcr:primaryType="nt:unstructured"
+															sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+															filter="nosystem" name="./plpVideos"
+															rootPath="/content/dam" />
+													</multi>
+												</items>
+											</pages>
+										</items>
+									</well>
+								</items>
+							</setStatic>
+							<category cq:showOnCreate="{Boolean}true"
+								granite:class="plp-category" jcr:primaryType="nt:unstructured"
+								sling:resourceType="/libs/cq/gui/components/coral/common/form/tagfield"
+								class="gallerydialogcategory" fieldLabel="Select Category"
+								name="./plpGalleryCategory" />
+							<videoDamPath granite:class="plp-video-path"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+								emptyText="Video Asset Path Here" fieldLabel="Video Source Path"
+								name="./plpVideoAssetPath" rootPath="/content/dam" />
+							<gallerytitle jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Enter Gallery Title"
+								fieldLabel="Gallery Title" name="./plpGalleryTitle"
+								useFixedInlineToolbar="{Boolean}true" />
+							<gallerytitlebackgroundoption
+								granite:class="cq-dialog-dropdown-showhide"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/select"
+								fieldLabel="Gallery Title Background Option"
+								name="./plpGalleryTitleBackOption">
+								<items jcr:primaryType="nt:unstructured">
+									<image jcr:primaryType="nt:unstructured" text="Image"
+										value="image" />
+									<color jcr:primaryType="nt:unstructured" text="Color"
+										value="color" />
+								</items>
+							</gallerytitlebackgroundoption>
+							<gallerytitlebackgroundColour
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+								fieldLabel="Gallery Title Background Color"
+								name="./plpGalleryTitleBackgroundColor" />
+							<gallerytitlebackgroundImage
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+								allowUpload="{Boolean}false" autoStart="{Boolean}false"
+								class="cq-droptarget"
+								fieldLabel="Gallery Title Background Image"
+								fileReferenceParameter="./plpGalleryTitleFileReferenceBgImg"
+								mimeTypes="[image/gif,image/jpeg,image/png,image/webp,image/tiff]"
+								multiple="{Boolean}false" name="./plpGalleryTitleBackgroundImage"
+								uploadUrl="${suffix.path}" useHTML5="{Boolean}true" />
+							<gallerydescription
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+								fieldDescription="Gallery Description"
+								fieldLabel="Gallery Description" name="./plpGalleryDescription"
+								useFixedInlineToolbar="{Boolean}true">
+								<htmlRules jcr:primaryType="nt:unstructured"
+									sling:resourceSuperType="training/components/content/playRtePlugins/htmlRules" />
+								<rtePlugins jcr:primaryType="nt:unstructured"
+									sling:resourceSuperType="training/components/content/playRtePlugins/rtePlugins" />
+								<uiSettings jcr:primaryType="nt:unstructured"
+									sling:resourceSuperType="training/components/content/playRtePlugins/uiSettings" />
+							</gallerydescription>
+							<playeroption jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								class="gallery-playeroption" defaultChecked="{Boolean}false"
+								name="./plpPlayerAvail" text="Show the Player"
+								uncheckedValue="{Boolean}false" value="{Boolean}true" />
+							<disableAutoPlay
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/foundation/form/checkbox"
+								checked="${not empty cqDesign.disableAutoplay? cqDesign.disableAutoplay: true}"
+								fieldDescription="Disable Auto-play Videos"
+								name="./plpDisableAutoplay" text="Disable Auto-Play ?"
+								uncheckedValue="{Boolean}true" value="{Boolean}false" />
+							<englishfield cq:xfVariantType="web"
+								jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="English field for Analytics"
+								fieldLabel="Adobe Tracking Name" name="./plpGalleryAnalticsText"
+								useFixedInlineToolbar="{Boolean}true" />
+							<nowPlayingText jcr:primaryType="nt:unstructured"
+								sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+								fieldDescription="Enter Now Playing Text"
+								fieldLabel="Now Playing text" name="./plpNowPlayingText" />
+						</items>
+					</plpgalleryconfig>
+				</items>
+			</tabs>
+		</items>
+	</content>
+</jcr:root>

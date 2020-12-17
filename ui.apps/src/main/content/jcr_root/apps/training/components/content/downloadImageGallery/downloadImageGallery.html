@@ -1,0 +1,48 @@
+<sly data-sly-test="${wcmmode.edit}">${'Configure Image and CTA
+Gallery' @ i18n}</sly>
+<sly
+	data-sly-use.downloadL="com.training.core.models.DownloadImageGalleryModel">
+<sly
+	data-sly-test="${(properties.downloadBgImage == null && properties.downloadBgColor == null )|| (properties.downloadBackOption =='image' && properties.downloadBgImage == null ) || (properties.downloadBackOption =='color' && properties.downloadBgColor == null )}">
+<div class="play-tiles-gallery play-download ${properties.styleFor}"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-height-sync=".gallery-image">
+</sly> <sly
+	data-sly-test="${properties.downloadBackOption =='image' && properties.downloadBgImage != null }">
+<div class="play-tiles-gallery play-download ${properties.styleFor}"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-height-sync=".gallery-image"
+	style="background: transparent url('${properties.downloadBgImage @ context=' styleString '}') 0 0;">
+</sly> <sly
+	data-sly-test="${properties.downloadBackOption =='color' && properties.downloadBgColor != null }">
+<div class="play-tiles-gallery play-download ${properties.styleFor}"
+	id="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-link-attribute="${properties.linkNavigationCheck?properties['linkNavOption']:''}"
+	data-height-sync=".gallery-image"
+	style="background-color: ${properties.downloadBgColor@ context='styleString'}">
+</sly> <sly
+	data-sly-test="${properties.title != null || properties.description != null }">
+<div class="gallery-title">
+	<sly data-sly-test="${properties.title!=null}">
+	<h2>${properties.title}</h2>
+	</sly>
+	<sly data-sly-test="${properties.description!=null}">
+	<p>${properties.description @context='html'}</p>
+	</sly>
+</div>
+</sly>
+<div class="show-more">
+	<a href="javascript:void(0);"
+		data-component-id="Download Section|${properties.alwaysEnglish}"
+		class="accordion"
+		data-text-collapse="${properties.showMoreText || 'SEE MORE'}"
+		data-text-expand="${properties.showLessText || 'SEE LESS'}"
+		aria-expanded="false"> ${properties.showMoreText || 'SEE MORE'} </a>
+</div>
+</div>
+</sly>
+
+
+

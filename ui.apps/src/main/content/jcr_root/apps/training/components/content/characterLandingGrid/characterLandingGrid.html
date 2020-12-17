@@ -1,0 +1,75 @@
+<sly data-sly-test="${wcmmode.edit}">${'Configure Character
+Categories' @ i18n} <sly
+	data-sly-test="${properties.orderCharacter=='manual'||properties.orderCharacter==null}">
+<sly
+	data-sly-test="${(properties.fileReferenceBgImg == null && properties.backgroundColor == null )|| (properties.backOption =='image' && properties.fileReferenceBgImg == null ) || (properties.backOption =='color' && properties.backgroundColor == null )}">
+<div class="training-character-landing-block">
+</sly> <sly
+	data-sly-test="${properties.backOption =='image' && properties.fileReferenceBgImg != null }">
+<div class="training-character-landing-block"
+	style="background: url('${properties.fileReferenceBgImg @ context=' styleString '}') no-repeat 0 0;">
+</sly> <sly
+	data-sly-test="${properties.backOption =='color' && properties.backgroundColor != null }">
+<div class="training-character-landing-block"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly>
+<div class="category-title filtered-heading-name">
+	<h2 style="display: none;"></h2>
+</div>
+<div class="training-list">
+	<div
+		class="lazy-load ${properties.columnLayout @ context='styleString'}"
+		data-sly-resource="${'columnOne' @ resourceType='wcm/foundation/components/parsys'}"></div>
+	<div
+		class="lazy-load ${properties.columnLayout @ context='styleString'}"
+		data-sly-resource="${'columnTwo' @ resourceType='wcm/foundation/components/parsys'}"></div>
+	<div
+		class="lazy-load ${properties.columnLayout @ context='styleString'}"
+		data-sly-resource="${'columnThree' @ resourceType='wcm/foundation/components/parsys'}"></div>
+	<sly data-sly-test="${properties.columnLayout =='column-4'}">
+	<div
+		class="lazy-load ${properties.columnLayout @ context='styleString'}"
+		data-sly-resource="${'columnFour' @ resourceType='wcm/foundation/components/parsys'}"></div>
+	</sly>
+</div>
+</div>
+</sly> <sly data-sly-test="${properties.orderCharacter=='automatic'}"> <input
+	type="hidden" id="currentPagePath"
+	value="${properties.characterLandingPath||currentPage.path}" /> <sly
+	data-sly-test="${(properties.fileReferenceBgImg == null && properties.backgroundColor == null )|| (properties.backOption =='image' && properties.fileReferenceBgImg == null ) || (properties.backOption =='color' && properties.backgroundColor == null )}">
+<div id="training-character-landing" class="training-chartraining--landing-block">
+</sly> <sly
+	data-sly-test="${properties.backOption =='image' && properties.fileReferenceBgImg != null }">
+<div id="training-character-landing" class="training-character-landing-block"
+	style="background: url('${properties.fileReferenceBgImg @ context=' styleString '}') no-repeat 0 0;">
+</sly> <sly
+	data-sly-test="${properties.backOption =='color' && properties.backgroundColor != null }">
+<div id="training-character-landing" class="training-character-landing-block"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly>
+<div class="category-title filtered-heading-name">
+	<h2 style="display: none;"></h2>
+</div>
+<div class="training-list"></div>
+</div>
+</sly> </sly>
+<sly data-sly-test="${!wcmmode.edit}"> <input type="hidden"
+	id="currentPagePath"
+	value="${properties.characterLandingPath||currentPage.path}" /> <sly
+	data-sly-test="${(properties.fileReferenceBgImg == null && properties.backgroundColor == null )|| (properties.backOption =='image' && properties.fileReferenceBgImg == null ) || (properties.backOption =='color' && properties.backgroundColor == null )}">
+<div id="training-character-landing" class="training-character-landing-block">
+</sly> <sly
+	data-sly-test="${properties.backOption =='image' && properties.fileReferenceBgImg != null }">
+<div id="training-character-landing" class="training-character-landing-block"
+	style="background: url('${properties.fileReferenceBgImg @ context=' styleString '}') no-repeat 0 0; background-size: contain;">
+</sly> <sly
+	data-sly-test="${properties.backOption =='color' && properties.backgroundColor != null }">
+<div id="training-character-landing" class="training-character-landing-block"
+	style="background-color: ${properties.backgroundColor@ context='styleString'}">
+</sly>
+<div class="category-title filtered-heading-name">
+	<h2 style="display: none;"></h2>
+</div>
+<div class="training-list"></div>
+</div>
+</sly>
